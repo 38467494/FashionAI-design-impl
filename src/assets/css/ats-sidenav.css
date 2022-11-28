@@ -1,0 +1,14 @@
+div.ats-sidenav {
+  transition: all 0.2s ease-out;
+  padding: 1rem 1.5rem;
+}
+div.ats-sidenav.active,
+div.ats-sidenav.active:hover{
+  color: #fff;
+  background-color: var(--base-primary);
+  font-weight: bold;
+}
+div.ats-sidenav:hover {
+  cursor: pointer;
+  background-color: var(--base-primary-opac);
+}

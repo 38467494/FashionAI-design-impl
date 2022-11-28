@@ -1,0 +1,94 @@
+:root {
+
+  /* 基础紫色 */
+  --base-purple: rgba(96, 106, 255, 1);
+
+  /* pink 色系 */
+  --base-pink: rgba(255, 0, 107, 1);
+  --base-pink-opac: rgba(255, 0, 107, 0.13);
+  --base-pink-lightup: rgb(255, 87, 156);
+  --base-pink-darken: rgb(206, 68, 121);
+  --base-pink-disabled: rgba(255, 0, 107, 0.33);
+
+  /* primary 色系 */
+  --base-primary: rgba(68, 108, 253, 1);
+  --base-primary-opac: rgba(68, 108, 253, 0.13);
+  --base-primary-opac-n: #e7ecff;
+  --base-primary-disabled: rgba(68, 108, 253, 0.33);
+  --base-primary-lightup: rgb(103, 135, 255);
+  --base-primary-darken: rgb(59, 93, 215);
+  --base-primary-shadow: rgba(68, 108, 253, 0.3);
+
+
+  --base-silent-bg: rgba(242, 243, 245, 1);
+  --base-silent-txt: rgba(151, 151, 151, 1);
+
+  --nav-txt-active-color: rgba(30, 63, 255, 1);
+  --nav-underline-gradient-blue-start: rgba(53, 80, 246, 1);
+  --nav-underline-gradient-blue-end: rgba(35, 184, 246, 1);
+
+  /* deprecated */
+  --text-color-in-dark: rgba(243, 244, 248, 1);
+  --text-color-in-dark-secondary: rgba(217, 217, 217, 1);
+  --inactive-text: #8c939d;
+
+  /* 超链接下划线颜色 */
+  --hyperlink-underline-color-static: #b5eafd;
+
+  --bgball-blue-linear-start: rgba(30, 63, 255, 1);
+  --bgball-blue-linear-end: rgba(25, 194, 246, 1);
+
+  /* 衬线字体 */
+  --font-serif: Georgia, 'Times New Roman', serif;
+
+  /* 等宽字体 */
+  --font-monospace: Consolas, 'Courier New', monospace;
+
+  /* 无衬线字体 */
+  --font-sans-serif: sans-serif;
+
+}
+
+body {
+  margin: 0;
+}
+
+.txt-in-dark {
+  color: var(--text-color-in-dark);
+}
+
+.txt-in-dark-secondary {
+  color: var(--text-color-in-dark-secondary);
+}
+
+.txt-bolder {
+  font-weight: bold;
+}
+.txt-lighter {
+  font-weight: lighter;
+}
+
+.cap-h1 {
+  font-size: 2.8rem;
+}
+
+.body-txt {
+  font-size: 1rem;
+}
+
+
+
+
+/**
+  position
+ */
+
+.pos-rltv {
+  position: relative !important;
+}
+.pos-abs {
+  position: absolute !important;
+}
+.pos-fixed {
+  position: fixed !important;
+}

@@ -1,0 +1,25 @@
+.label-text{
+  /*display:inline;*/
+  text-align: right;
+}
+.content-text{
+  text-align: left;
+}
+.finish-div{
+  position: relative;
+  background: red;
+  color: white;
+  width:70px;
+  height: 0px;
+  top: 0px;
+  left: -20px;
+  content: '';
+  border: 15px solid red;
+  border-right-color: white;
+}
+
+.finish-text{
+  position: relative;
+  top: -10px;
+  left: -10px;
+}

@@ -1,0 +1,16 @@
+.myColorPicker{
+  /* border: #e6e6e6 1px solid;
+  border-radius: 5px; */
+  /* padding: 4px; */
+  /*color: ;*/
+
+}
+.m-colorPicker >>> .colorBtn{
+  width: 28px;
+  height: 28px;
+  border: #999 1px solid;
+  border-radius: 3px;
+}
+.m-colorPicker >>> .box.open{
+  z-index: 999 !important;
+}

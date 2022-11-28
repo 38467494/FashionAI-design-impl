@@ -1,0 +1,22 @@
+.project-icon{
+  width: 100px;
+  height: 100px;
+}
+.project-button{
+  border: 0px;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: auto;
+  padding:20px;
+}
+.project-button:hover{
+  background: #D9ECFF;
+}
+.iconfont{
+  font-size: 80px;
+}
+.icon{
+  width: auto;
+  height: auto;
+}

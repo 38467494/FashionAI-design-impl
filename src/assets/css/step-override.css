@@ -1,0 +1,72 @@
+
+.el-step__head {
+  position: relative;
+  width: 100%;
+}
+/* @Override */
+.el-step__head.is-finish {
+  color: var(--base-primary);
+  border-color: var(--base-primary);
+}
+.el-step__head.is-finish > .el-step__icon{
+  background-color: var(--base-primary-opac-n);
+}
+.el-step__icon {
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.el-step__icon.is-icon {
+  width: 40px;
+}
+.el-step__icon-inner[class*="el-icon"]:not(.is-status) {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+/* @Override 将连接线改成虚线 */
+.el-step__line {
+  background-color: transparent;
+  border-top: 2px dashed #c0c4cc; 
+}
+.el-step__line-inner {
+  border-width: 1px;
+  border-style: dashed;
+  border-color: inherit;
+  width: 0;
+  height: 0;
+}
+.el-step__title {
+  font-size: 16px;
+  line-height: 38px;
+}
+.el-step__title.is-wait {
+  color: #c0c4cc;
+}
+.el-step__title.is-finish,
+.el-step__description.is-finish {
+  color: var(--base-primary);
+}
+.el-step__description.is-wait {
+  color: #c0c4cc;
+}
+
+.el-step.is-horizontal .el-step__line {
+  height: 2px;
+  top: 11px;
+  left: 0;
+  right: 0;
+}
+.el-step.is-center .el-step__description {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.el-step.is-center .el-step__line {
+  left: 50%;
+  right: -50%;
+}

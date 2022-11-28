@@ -1,0 +1,425 @@
+nohup: 忽略输入
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.4)
+
+2022-03-14 22:33:04.656  INFO 28042 --- [           main] ices.fashion.FashionApplication          : Starting FashionApplication v0.0.1-SNAPSHOT using Java 1.8.0_222 on hit-Z10PA-D8-Series with PID 28042 (/home/hit/fashionAI/fashion-0.0.1-SNAPSHOT.jar started by hit in /home/hit/fashionAI)
+2022-03-14 22:33:04.659  INFO 28042 --- [           main] ices.fashion.FashionApplication          : No active profile set, falling back to default profiles: default
+2022-03-14 22:33:06.423  INFO 28042 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-03-14 22:33:06.448  INFO 28042 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-14 22:33:06.448  INFO 28042 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-03-14 22:33:06.547  INFO 28042 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-14 22:33:06.547  INFO 28042 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1826 ms
+2022-03-14 22:33:07.168  WARN 28042 --- [           main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "ices.fashion.entity.collaborate.ColCommentQuery".
+ _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+                        3.4.3 
+2022-03-14 22:33:08.404  INFO 28042 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2022-03-14 22:33:08.416  INFO 28042 --- [           main] ices.fashion.FashionApplication          : Started FashionApplication in 4.375 seconds (JVM running for 5.006)
+2022-03-14 22:34:14.353  INFO 28042 --- [nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-14 22:34:14.353  INFO 28042 --- [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-14 22:34:14.364  INFO 28042 --- [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2022-03-14 22:34:14.473  INFO 28042 --- [nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-14 22:34:15.050  INFO 28042 --- [nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647272059&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:gc20ZYLdscgBFQf0v2qKU4IzgJQ=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647272059&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:vHGLWt0t9of1EDSHDxu-KVoa3pU=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647272059&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:jhpquTAKq9_piIc_2uvAu9ZMXoY=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647272060&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:B8XtnaaPj9t1SEeDc6XNK3GV7IQ=
+/home/hit/fashionAI/img/outfit_gan_bag_1647268460686.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647268460686.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647268460686.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647268460686.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647268460686.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647268460686.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324462&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:c92xSIl9zMCpci9MeuIId5EBsfA=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324465&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:hvCsb4hg2weWvUIsXLxvvMhflHg=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324466&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:Zi9HWDs3NkBctWlKCTZq6alQyME=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324466&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:o5k2pgMP9-8jk9-xqkvPK4gyhlI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324476&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:ydrOgnwO1dmT0Nxa-DFyEbVsc_I=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324476&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:5Ve0TYolFRP14mCZizGk41cH8vA=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324476&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:S6JIv2ci8Ku47YYOSLy3_c_nHTM=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324476&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:NK0MqelpkfqYY1krYP7KogcYPNI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324539&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:d8LqVqhe1tdVpsEicp-6UxvO7ac=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324540&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:xF-HcDKAumfHRdnXd9RRQ0TVjY8=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324540&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:ZSIH6ChBnjhKlDxnrZSxe8T8bIg=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324540&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:dxcwJO4Aciecrwk0mKnxxingV0c=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324544&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:D1JmVI7Rfw_PF75kC8UyrWHSpeo=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0049fc6ccd0e48a30883aa0fb42a3759.jpg?e=1647324544&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:LjJ91x5h0O7NkbvAmr5o4BLWRbs=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324544&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:Xd0Bn8CTaoXipGAhkZm34bV3a3Q=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324545&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:ITuBSJSJu4HNO1Q4GTt-qxcwXd0=
+/home/hit/fashionAI/img/outfit_gan_bag_1647320945436.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647320945436.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647320945436.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647320945436.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647320945436.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647320945436.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324552&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:FS2MiZOkJG09_vR5oyBV2zdokaI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324556&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:cj3OGbFjKQx_3JrALHhxv7i2eF0=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324557&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:w_zrX509kmHHs_k9gm1OwdqeeFg=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324557&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:WaUl-XtG5GYmaWOUy7K4yInaMg0=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324561&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:Lsu3ch7ju3hJeEIf6H7NxvaK4HY=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F002e6a44f0bd307587ac3c5f7e567f31.jpg?e=1647324561&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:Yapx0jKsxNo3uqsottHgMDM0wiQ=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324561&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:qwjK4ivVd-mDecatdhD9oYSQWc4=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324561&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:ZFSA2WtbceXKp_eItcqP759xvp8=
+/home/hit/fashionAI/img/outfit_gan_bag_1647320962087.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647320962087.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647320962087.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647320962087.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647320962087.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647320962087.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324569&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:4sfcUp2piwC1J_gHyARimXMx-Zc=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324570&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:TUxzn_QoZly5S4SynssLLYGst-o=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324570&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:iOHYcGUyrGbx7GpuLIXYjRhvHt8=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324570&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:IIisrjkltKvtrm6369G-V7TpZuQ=
+/home/hit/fashionAI/img/outfit_gan_bag_1647320971263.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647320971263.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647320971263.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647320971263.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647320971263.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647320971263.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324578&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:tj-UXHrkn2CE_abBi0IYhd_U7v0=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324578&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:Al1Ibk3EPl3x8ADvfDSHkrSI_Qc=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324578&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:gYWzSAa62BKWTHUaVN3H0MwuG_U=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324579&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:VlRIMEIleQsP57X3JV7DArbgZgc=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324640&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:-ZiPogx9CNMlbhaqI1UHqIEDFzg=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324640&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:xdEUFBJpF1mpCHZ3DJ1_pzQCEWE=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324640&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:O7c386TUz7ZrUTvEwZIggW5W_a8=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324641&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:WbEpLteAztFZ7AO9Fh4obiM_VtI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324739&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:X5-pfZu5AERyERs6jj2ogiUtyAU=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0049fc6ccd0e48a30883aa0fb42a3759.jpg?e=1647324739&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:PGABm18tLLf_2JXj20ZM3d_jk7U=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324740&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:zgn59xBDgIYC1HKfkE_b1j05RDU=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324740&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:bi-KZVt75493pvTaCLZvGMaX-d0=
+/home/hit/fashionAI/img/outfit_gan_bag_1647321140639.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647321140639.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647321140639.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647321140639.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647321140639.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647321140639.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324754&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:CodkkQfBIxoK925-Cy366X0f08c=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324754&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:30_wZp7Eg56TmrLxt2DJ0mNZe5w=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324754&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:TMDYAnM06JNi0gb68xB8CuBJzLc=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324754&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:UcBY4TCL3F4Mcq0SdNgy6AjGZvI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324757&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:FgzO117hbiLBrrAeGZi6a6_PZuQ=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F003623f6ae4eb6e8ef8451b22a35ab92.jpg?e=1647324757&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:DvcMB3vBWtuD8d8CYorv_Qdi-2Y=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324758&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:OGGJ-7HAzObcsNyT6IiTYwMf46U=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324758&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:GVukRpghG-TuxSf3-egS-qJch84=
+/home/hit/fashionAI/img/outfit_gan_bag_1647321158560.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647321158560.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647321158560.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647321158560.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647321158560.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647321158560.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647324761&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:z7Sd8vfpw1MtQqETf98kkSoqALA=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0049fc6ccd0e48a30883aa0fb42a3759.jpg?e=1647324762&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:4ULplCK8m8YFFIu0Zn-DMbfJx4k=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324762&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:FOu27F5iduCe667N4Et_DIk24jI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324762&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:uN4MLp34L78tT09z9W3DQVdcdkU=
+/home/hit/fashionAI/img/outfit_gan_bag_1647321162793.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647321162793.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647321162793.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647321162793.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647321162793.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647321162793.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647324797&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:GBDiOtRR_IVuxyuXKDGz7weCaxc=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647324797&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:cPkMRBY3aY18s0jWvZqp8DVudMc=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324797&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:qHNP7af42vUflY1oHa3lVGkQvUk=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324798&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:d0Kt75uyTjtVMC1wPf3XAJqzm-4=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647324802&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:AV_yRzMpUAhW-_n97__LfFdyNLM=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F003623f6ae4eb6e8ef8451b22a35ab92.jpg?e=1647324803&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:aVY4tVfl0X9s6J2pyGB2QT2nZxM=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324803&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:HsvlFE2mxjZXyzmuYTODgsswM0c=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324811&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:8N3YpXDIMhhHccq8amPGGpuSb3I=
+/home/hit/fashionAI/img/outfit_gan_bag_1647321211619.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647321211619.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647321211619.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647321211619.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647321211619.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647321211619.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647324816&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:ikYz5yzZ1f9ctgRLngE3_NhXSmE=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0049fc6ccd0e48a30883aa0fb42a3759.jpg?e=1647324816&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:8mrmNE9FPTF775MEAtV7j-HSsyQ=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324816&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:yY6wa9nftRM5HaKQUWdTEhpHwm0=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647324816&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:JN7NxIytDdEma-5qut3a0snCPtA=
+/home/hit/fashionAI/img/outfit_gan_bag_1647321217159.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647321217159.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647321217159.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647321217159.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647321217159.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647321217159.jpg
+http://shoplook.voguexplorer.com/fashion%2Frender%2Fsketch%2F168.jpg?e=1647324832&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:_mbyYgyVKCE_zHyTaHRFHeR1Vog=
+http://shoplook.voguexplorer.com/render_1647321254000render_1.jpg?e=1647324832&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:7GISjkbrzQMbRYf-yrryVm5HViA=
+/home/hit/fashionAI/img/render_1647321232834.jpg
+http://shoplook.voguexplorer.com/render_1647321232834.jpg
+http://shoplook.voguexplorer.com/fashion%2Frender%2Fsketch%2F000199358df33d4fce27672d3f86cf0c.jpg?e=1647324836&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:HqY0Nt9UGz9MgbC6I4Mz-xKu3Ic=
+http://shoplook.voguexplorer.com/render_1647321254000render_1.jpg?e=1647324836&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:vMcvxPGndGppYzJ1FUK95mnNjJU=
+/home/hit/fashionAI/img/render_1647321237420.jpg
+http://shoplook.voguexplorer.com/render_1647321237420.jpg
+http://shoplook.voguexplorer.com/fashion%2Fmmc-gan%2Fjacket%2F6044e27de5ffcfdef077030ea45b90cc.jpg?e=1647324892&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:gpGF5QNX5daNhJ_Z6oI9a2BL-w0=
+Womens Fashion Jackets Blazers Plein Sud Jeanius blazers Plein Sud Jeanius asymmetric blazer
+/home/hit/fashionAI/img/mmc_gan_1647321294291.png
+http://shoplook.voguexplorer.com/mmc_gan_1647321294291.png
+http://shoplook.voguexplorer.com/fashion%2Fmmc-gan%2Fjacket%2F9d4a6e9780184cbce7620e3d7c90bf64.jpg?e=1647324901&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:UWAcvpnhU6XbIfhdaSnI6t08zXk=
+Womens Fashion Jackets Blazers Tom Ford blazers Tom Ford Tuxedo Jacket
+/home/hit/fashionAI/img/mmc_gan_1647321302168.png
+http://shoplook.voguexplorer.com/mmc_gan_1647321302168.png
+http://shoplook.voguexplorer.com/fashion%2Frender%2Fsketch%2F168.jpg?e=1647324959&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:t0jde4__L_jqevEokIDk9muQm-g=
+http://shoplook.voguexplorer.com/render_1647321381000render_1.jpg?e=1647324959&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:KY2WZyO28jcWvA-gNVW-2ZL8mng=
+/home/hit/fashionAI/img/render_1647321359972.jpg
+http://shoplook.voguexplorer.com/render_1647321359972.jpg
+http://shoplook.voguexplorer.com/fashion%2Frender%2Fsketch%2F000199358df33d4fce27672d3f86cf0c.jpg?e=1647324963&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:9BAR37YSOtADhQa05hMVB2GOsBg=
+http://shoplook.voguexplorer.com/render_1647321381000render_1.jpg?e=1647324963&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:it9tUqdjDLQXV5o1QDFiqu7lwfw=
+/home/hit/fashionAI/img/render_1647321364019.jpg
+http://shoplook.voguexplorer.com/render_1647321364019.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325453&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:Yi-27i4CDXadix46cOnVpXX64HQ=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647325454&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:lrScl6Kv1h5pl4E-ilJw1y41a6c=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325454&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:-uetydPzL-Hwbcv-g7l-B1_Afks=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325454&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:RzTz0j2JD4j_cWhqSUpdoPZ3IcQ=
+/home/hit/fashionAI/img/outfit_gan_bag_1647321855192.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647321855192.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647321855192.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647321855192.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647321855192.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647321855192.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325478&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:unptMsRHgyCMuS6nyhuZkZuG8aY=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325478&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:wEo-bdS1QM6E1EARAfMYXbUFy4k=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325478&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:0_EZdOKkHZKUm1fPFOly_ovBlq4=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325478&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:1AnpIvkqnO2d3Xr_yTK881Kh_YQ=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325482&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:5bc-1jchTxFqq6LiQGrSDYIyoiU=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0049fc6ccd0e48a30883aa0fb42a3759.jpg?e=1647325482&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:TIs6JBxb_IAsVApzWqeTOysiDsU=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325482&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:mCnkU-MyyS616VzcBs6P2KUKp1M=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325482&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:7eDYxmEkXHRz479_1BHA8IyWvS8=
+/home/hit/fashionAI/img/outfit_gan_bag_1647321882994.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647321882994.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647321882994.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647321882994.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647321882994.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647321882994.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325486&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:pkjzhfUGu_czlBl4ImrmBIhW71c=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F002e6a44f0bd307587ac3c5f7e567f31.jpg?e=1647325487&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:2xobOVv2O6Zs8TV4io4Ypc-IYzI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325487&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:PeRMgGr6EMJHuDw9z_6KYnYKeSo=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325487&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:lFyX6LKnECbvsviyPMSGpArw5S8=
+/home/hit/fashionAI/img/outfit_gan_bag_1647321887903.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647321887903.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647321887903.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647321887903.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647321887903.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647321887903.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325492&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:zMay3RjtEDvjwkL4a67N_aWP-68=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325492&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:97X8V14kQJS79u1vESoKM6WS0Js=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325492&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:DlAiuilKXdf8BuTL0-mfEciX8ug=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325493&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:88hX2BVjvrkCgmrJ7rtIy0vQur0=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325514&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:2W0-bq-KfrlSUSWYFgoaZQWoQdI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647325515&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:_DU1ByO8kAM8shKO35pfftUA7-4=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325515&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:Ggr6qMoj0PJV7wUZqu-6-HYJjfk=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325515&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:cX0fxw1zxvc2yzjOSIEYxqOdKLI=
+/home/hit/fashionAI/img/outfit_gan_bag_1647321915935.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647321915935.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647321915935.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647321915935.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647321915935.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647321915935.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325520&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:jCYQ5fthMG3s7iRp7DP2c-E7ndo=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325520&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:FwwVmyMR26gyi8SVwWVcf-OA38o=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325520&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:pzFkGSrfS6H7GbXNFyYsdfubNCY=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325520&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:-1s6ilZoqvLuFodymTIqWbkrDOA=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647325523&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:VCFPiVBIEGnzCy6jYY07PMbEz8o=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0049fc6ccd0e48a30883aa0fb42a3759.jpg?e=1647325530&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:7ntV5JQMuMDZiu64WTJZSYi1JzA=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325530&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:rlPnCNi_np0AVWn8kDDaFgOv1ok=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647325530&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:WfRTwr7I4YRNed4aqfnZ1jomRKw=
+/home/hit/fashionAI/img/outfit_gan_bag_1647321931197.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647321931197.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647321931197.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647321931197.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647321931197.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647321931197.jpg
+2022-03-15 13:25:59.335  INFO 28042 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-15 13:25:59.351  INFO 28042 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+nohup: 忽略输入
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.4)
+
+2022-03-15 15:31:26.946  INFO 785 --- [           main] ices.fashion.FashionApplication          : Starting FashionApplication v0.0.1-SNAPSHOT using Java 1.8.0_222 on hit-Z10PA-D8-Series with PID 785 (/home/hit/fashionAI/fashion-0.0.1-SNAPSHOT.jar started by hit in /home/hit/fashionAI)
+2022-03-15 15:31:26.949  INFO 785 --- [           main] ices.fashion.FashionApplication          : No active profile set, falling back to default profiles: default
+2022-03-15 15:31:28.792  INFO 785 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-03-15 15:31:28.808  INFO 785 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-15 15:31:28.808  INFO 785 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-03-15 15:31:28.881  INFO 785 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-15 15:31:28.881  INFO 785 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1861 ms
+2022-03-15 15:31:29.389  WARN 785 --- [           main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "ices.fashion.entity.collaborate.ColCommentQuery".
+ _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+                        3.4.3 
+2022-03-15 15:31:30.576  INFO 785 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2022-03-15 15:31:30.589  INFO 785 --- [           main] ices.fashion.FashionApplication          : Started FashionApplication in 4.259 seconds (JVM running for 4.924)
+2022-03-15 15:31:49.926  INFO 785 --- [nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-15 15:31:49.926  INFO 785 --- [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-15 15:31:49.928  INFO 785 --- [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-03-15 15:31:50.106  INFO 785 --- [nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-15 15:31:50.675  INFO 785 --- [nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647333130&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:TEtNpFfJWTy20ya8mEK-bimEaCA=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647333131&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:tIGW2R254rfAetegXTljnI-G4LA=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647333131&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:sxkhyuTYrD5DjIhckL6P_NEtKQc=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647333131&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:SpH8HXa5iTmAdpmsXbpd8cVlku4=
+/home/hit/fashionAI/img/outfit_gan_bag_1647329532200.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647329532201.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647329532201.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647329532200.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647329532201.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647329532201.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647333137&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:9CuJj4_cqQyZwLqUr6jXATqsuQ8=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0049fc6ccd0e48a30883aa0fb42a3759.jpg?e=1647333138&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:WlQE0bhccVmyFzIjP-LTHZ4HCu0=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647333138&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:UGoo3N7KNG3ovQhiS68bkMGFse0=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647333138&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:ca21Gb6MQmG11c2mUxxv53QRSh4=
+/home/hit/fashionAI/img/outfit_gan_bag_1647329543498.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647329543498.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647329543498.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647329543498.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647329543498.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647329543498.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647333187&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:Pgm5HKrAdRyfFyBbNcvRrDr7sKg=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647333187&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:-9N8UsUao26hqoaTefBB2nJt7p8=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647333188&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:3LG9YIX37rscrFneMCo55Au-gYo=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647333188&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:a6lAl1BhDYNtqR5ws_u6RCIml2U=
+/home/hit/fashionAI/img/outfit_gan_bag_1647329588471.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647329588471.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647329588471.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647329588471.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647329588471.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647329588471.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F0021af58ae1826bf02090cbf43f24b55.jpg?e=1647333193&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:1t3fLvvkqA3crgVA0xDrrPec__w=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F00c11298438db953b75e6190a6327494.jpg?e=1647333193&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:luiBM272p1sA1Sa5552X9JiTOTk=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647333193&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:-K0xD9AuR_4SmyxUr3T04x_7Hlk=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647333194&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:pC3rQqLrahmeJxxG_A9_cqTsk9A=
+/home/hit/fashionAI/img/outfit_gan_bag_1647329594546.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647329594546.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647329594546.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647329594546.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647329594546.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647329594546.jpg
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647334199&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:4hJaIYvWTlrX3u-JkllXLmquAK0=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F003623f6ae4eb6e8ef8451b22a35ab92.jpg?e=1647334199&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:3CBF3kj8W0UJ7nP3XKxHVlkHNYg=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647334199&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:c6MA2-08TMB730iih5ZzVeXot60=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647334200&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:XTWi_gdO2X_Dwbh-spi11SyvCMs=
+/home/hit/fashionAI/img/outfit_gan_bag_1647330600515.jpg
+/home/hit/fashionAI/img/outfit_gan_shoes_1647330600515.jpg
+/home/hit/fashionAI/img/outfit_gan_lower_1647330600515.jpg
+http://shoplook.voguexplorer.com/outfit_gan_bag_1647330600515.jpg
+http://shoplook.voguexplorer.com/outfit_gan_lower_1647330600515.jpg
+http://shoplook.voguexplorer.com/outfit_gan_shoes_1647330600515.jpg
+2022-03-15 16:01:51.593  WARN 785 --- [nio-8888-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'pid' for method parameter type int is not present]
+2022-03-15 16:15:33.320  WARN 785 --- [nio-8888-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'pid' for method parameter type int is not present]
+2022-03-15 16:20:53.547  WARN 785 --- [io-8888-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'pid' for method parameter type int is not present]
+2022-03-15 16:23:13.094  WARN 785 --- [nio-8888-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'pid' for method parameter type int is not present]
+2022-03-15 16:23:52.996  WARN 785 --- [nio-8888-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'pid' for method parameter type int is not present]
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338030&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:0MDVT8t-UaelTrZnxCQTBgGu_30=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F001eeda1267459a4c5dfe924c8f0468e.jpg?e=1647338032&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:A4U2WmFtgmsTKJ_wVJVga3BWDNI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338032&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:IQ8q_bQlVFgcOrKNrY0yZN65vGc=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338033&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:EL44EiCEs-FDeW3bgaEzZKsSxUM=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338038&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:iBnlgWcgdh1_QfpVJ2lED6MuYpI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F0049fc6ccd0e48a30883aa0fb42a3759.jpg?e=1647338038&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:ef4LLCLRDhwFwWgXBVDq_ja8vvE=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338039&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:OXOhXfwgzJT3QVu4JsEwF4-zHHc=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338039&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:JFsuAJV3zRHXSYilww0wMXc76_M=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338044&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:g1z2VRGuF0KUIfwrRotWccOv_zI=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F002e6a44f0bd307587ac3c5f7e567f31.jpg?e=1647338044&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:LTxtlBuZJkUSbdIysJu4IpSKmF4=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338045&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:x9LP62sUqL1eOE7Iitpqx7GbNok=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338048&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:6OtSQoWH6pGInWqLjfSPcmGpM_Y=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fupper%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338071&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:Gis1v1u4KZtxETqtm7XIvBDZGu8=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Flower%2F004fd3e5ce391ab1805ca101ae8c71dd.jpg?e=1647338071&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:yFBOTxCR3uqOszyMRkU7bCfFom8=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fshoes%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338071&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:DOB-oHm_2SPuDdp5AsDfY-O2xXY=
+http://shoplook.voguexplorer.com/fashion%2Foutfit-gan%2Fbag%2F001aeb1dc1adbcb6a36060961f92843e.jpg?e=1647338071&token=afg3FFJacTTtaCxYJgG3fCYoE0iPCWrilEBnaE-A:FDfBsb3LR58hBHi50oWBvFXSxfo=
+2022-03-15 16:54:45.820 ERROR 785 --- [nio-8888-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+### The error may exist in ices/fashion/mapper/collaborate/ColUserMapper.java (best guess)
+### The error may involve ices.fashion.mapper.collaborate.ColUserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO col_user    VALUES
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1] with root cause
+
+java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.26.jar!/:8.0.26]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.26.jar!/:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.26.jar!/:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370) ~[mysql-connector-java-8.0.26.jar!/:8.0.26]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-4.0.3.jar!/:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar!/:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47) ~[mybatis-3.5.7.jar!/:3.5.7]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74) ~[mybatis-3.5.7.jar!/:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50) ~[mybatis-3.5.7.jar!/:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.7.jar!/:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.7.jar!/:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194) ~[mybatis-3.5.7.jar!/:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:181) ~[mybatis-3.5.7.jar!/:3.5.7]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_222]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_222]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_222]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_222]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar!/:2.0.6]
+	at com.sun.proxy.$Proxy57.insert(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272) ~[mybatis-spring-2.0.6.jar!/:2.0.6]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:59) ~[mybatis-plus-core-3.4.3.jar!/:3.4.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:148) ~[mybatis-plus-core-3.4.3.jar!/:3.4.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.4.3.jar!/:3.4.3]
+	at com.sun.proxy.$Proxy61.insert(Unknown Source) ~[na:na]
+	at ices.fashion.service.impl.collaborate.ColUserServiceImpl.login(ColUserServiceImpl.java:25) ~[classes!/:0.0.1-SNAPSHOT]
+	at ices.fashion.controller.collaborate.UserController.login(UserController.java:19) ~[classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.GeneratedMethodAccessor110.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_222]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_222]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.9.jar!/:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar!/:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar!/:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar!/:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar!/:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar!/:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.52.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.52.jar!/:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_222]
+
