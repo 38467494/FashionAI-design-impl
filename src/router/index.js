@@ -54,6 +54,9 @@ import innerPage from "../components/personal/innerPage";
 import testCover from "../components/testCover";
 import stylist from "../components/stylist";
 import singleLogin from '../components/singleLogin.vue'
+import designInspire from "../components/design/designInspire.vue";
+import designAIColor from "../components/design/designAIColor.vue";
+import designTest from "../components/design/designTest.vue";
 Vue.use(Router)
 
 const routes = new Router({
@@ -202,6 +205,21 @@ const routes = new Router({
           name: 'recommend',
           component: designRecommend
         },
+        {
+          path: 'inspire',
+          name: 'inspire',
+          component: designInspire
+        },
+        {
+          path: 'aicolor',
+          name: 'aicolor',
+          component: designAIColor
+        },
+        {
+          path: 'test',
+          name: 'test',
+          component: designTest
+        }
       ]
     },
 

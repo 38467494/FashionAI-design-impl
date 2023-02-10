@@ -118,8 +118,40 @@ export default {
 
         }
     },
+    // watch:{
+    //   urls:{
+    //     handler(newValue,oldValue){
+    //
+    //       this.load();
+    //     },
+    //     deep:true,
+    //     immediate:false,
+    //   }
+    // },
     methods:{
 
+        load: function (){
+          // this.getFiles();
+          //接收从前端传递来的name（衣服种类）,module:调用的模块（对应与哪个模型）
+          console.log(this.name);
+          console.log(this.module);
+
+          console.log(this.urls)
+          //这里需要添加一个接口，向后端请求对应衣服种类的图片
+          //获取后可以使用divide函数将数组划分并显示
+
+          console.log(this.height);
+
+          this.width = 24 / this.cols
+
+          this.total = this.urls.length
+          this.pageSize = this.rows * this.cols
+
+
+          this.divide(this.urls,this.rows,this.cols);
+
+          this.changePage(1)
+        },
 
         select:function (e,url,index){
           if(url == '/static/transparent.png')
@@ -139,9 +171,15 @@ export default {
           }
           else if(this.module == "render"){
             this.$emit("selectCloth",e.currentTarget,index,this.name);
-          } else if(this.module == "vton"){
+          }
+          else if(this.module == "vton"){
             this.$emit("selectCloth",e.currentTarget,index,this.name);
           }
+
+          else if(this.module == "aicolor"){
+            this.$emit("selectCloth",e.currentTarget,index,this.name);
+          }
+
 
         },
 

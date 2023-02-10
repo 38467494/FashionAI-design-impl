@@ -2,21 +2,21 @@
   <div>
     <div class="flex divide-x">
       <section class="basis-9/12 px-8 py-4">
-<!--        <h4>服装式样</h4>-->
-          <el-tabs v-model="activeName" style="width: 100%">
-            <template v-for="(item,index) in tabList">
-              <el-tab-pane :key="index" :label="item.label" :name="item.name">
-                <image-show
-                  v-bind:name="item.name"
-                  v-bind:module="moduleType"
-                  v-bind:urls="urls[index]"
-                  v-bind:index="index"
-                  v-if="renderReady"
-                            @selectCloth="selectCloth(arguments)">
-                </image-show>
-              </el-tab-pane>
-            </template>
-          </el-tabs>
+        <!--        <h4>服装式样</h4>-->
+        <el-tabs v-model="activeName" style="width: 100%">
+          <template v-for="(item,index) in tabList">
+            <el-tab-pane :key="index" :label="item.label" :name="item.name">
+              <image-show
+                v-bind:name="item.name"
+                v-bind:module="moduleType"
+                v-bind:urls="urls[index]"
+                v-bind:index="index"
+                v-if="InspireReady"
+                @selectCloth="selectCloth(arguments)">
+              </image-show>
+            </el-tab-pane>
+          </template>
+        </el-tabs>
 
       </section>
 
@@ -60,39 +60,37 @@
       </section>
     </div>
 
-    <div>
-      <my-collect-dialog title="渲染生成结果" :visible.sync ="dialogVisible" :collect-info="collect">
-        <render-result v-bind:sketch="resultSketch" v-bind:color="resultColor" v-bind:result="renderResult"
-                       v-loading="resultLoading"  v-bind:uploadToken="uploadData.token" v-bind:dialogVisible="dialogVisible" ref="renderResult"></render-result>
-      </my-collect-dialog>
-<!--      <el-dialog title="渲染生成结果" :visible.sync="dialogVisible" width="70%" style="min-width: 840px">-->
-<!--        <render-result v-bind:sketch="resultSketch" v-bind:color="resultColor" v-bind:result="renderResult"-->
-<!--        v-loading="resultLoading"  v-bind:uploadToken="uploadData.token"></render-result>-->
-<!--      </el-dialog>-->
-    </div>
+<!--    <div>-->
+<!--      <my-collect-dialog title="渲染生成结果" :visible.sync ="dialogVisible" :collect-info="collect">-->
+<!--        <inspire-result v-bind:sketch="resultSketch" v-bind:color="resultColor" v-bind:result="inspireResult"-->
+<!--                       v-loading="resultLoading"  v-bind:uploadToken="uploadData.token" v-bind:dialogVisible="dialogVisible" ref="inspireResult"></inspire-result>-->
+<!--      </my-collect-dialog>-->
+<!--      &lt;!&ndash;      <el-dialog title="渲染生成结果" :visible.sync="dialogVisible" width="70%" style="min-width: 840px">&ndash;&gt;-->
+<!--      &lt;!&ndash;        <inspire-result v-bind:sketch="resultSketch" v-bind:color="resultColor" v-bind:result="inspireResult"&ndash;&gt;-->
+<!--      &lt;!&ndash;        v-loading="resultLoading"  v-bind:uploadToken="uploadData.token"></inspire-result>&ndash;&gt;-->
+<!--      &lt;!&ndash;      </el-dialog>&ndash;&gt;-->
+<!--    </div>-->
   </div>
-
 </template>
-
 
 <script>
 import ImageShow from "./ImageShow";
-import RenderResult from "./renderResult";
-import {Render} from "../../api/design";
-import renderResult from "./renderResult";
+import InspireResult from "./inspireResult";
+import {Inspire} from "../../api/design";
+import inspireResult from "./inspireResult";
 import * as qiniu from "qiniu-js";
 import {getUploadToken} from "../../api/design";
-import {initRender} from "../../api/design";
+import {initInspire} from "../../api/design";
 import {showError} from "./alert";
 import MyCollectDialog from "../my-collect-dialog";
 import {getCoverImg, getImg} from "../personal/coverFunction";
 import AtsButton from "../common/AtsButton";
 export default {
-  name: "designRender",
-  components: {MyCollectDialog, RenderResult, ImageShow, AtsButton},
+  name: "designInspire",
+  components: {MyCollectDialog, InspireResult, ImageShow, AtsButton},
   data() {
     return {
-      moduleType:"render",
+      moduleType:"inspire",
       isCollapse: true,
       hasSubmit: false,
       activeName: "Jackets",
@@ -134,7 +132,7 @@ export default {
         ],
         [],[], [],[],[],[]
       ],
-      renderReady:false,  //记录图片是否加载完成
+      inspireReady:false,  //记录图片是否加载完成
 
       fileList:[],
       imageUrl :null, //图片在七牛云上的url，通过这个url可以直接访问到图片
@@ -150,21 +148,22 @@ export default {
       resultLoading: false,
       resultSketch: null,
       resultColor:null,
-      renderResult: null,
+      inspireResult: null,
 
     };
   },
   mounted:function() {
-      //生成七牛云上传凭证
-      let _this=this;
-      getUploadToken({
-        forever: false
-      }).then(res=>{
-        console.log("getUploadToken:",res.data);
-        _this.uploadData.token = res.data;
-      })
-      this.getFiles();
-    },
+    //生成七牛云上传凭证
+    let _this=this;
+    getUploadToken({
+      forever: false
+    }).then(res=>{
+      console.log("getUploadToken:",res.data);
+      _this.uploadData.token = res.data;
+    })
+    this.getFiles();
+  },
+
   methods: {
     //获取数据库中图像数据
     getFiles: function(){
@@ -172,8 +171,8 @@ export default {
       this.urls = [];
       this.fileNames = [];
       var nameList=["jacketList","topList","jeansList","shortsList","skirtList","bagList","hatList"];
-      initRender().then(res => {
-        console.log("init render",res.data);
+      initInspire().then(res => {
+        console.log("init inspire",res.data);
         var files = res.data.data;
         for(var i=0;i<nameList.length;i++){
           var list = files[nameList[i]];
@@ -186,7 +185,7 @@ export default {
           _this.fileNames.push(list);
         }
         console.log(_this.urls,_this.fileNames);
-        _this.renderReady = true;
+        _this.inspireReady = true;
       })
     },
     //某个tab中某张图片被选中，出发该函数，需要修改元素的className和保存id
@@ -194,7 +193,7 @@ export default {
       var dom = msg[0];
       var index = msg[1];
       var type = msg[2];
-      console.log("select render",msg);
+      console.log("select inspire",msg);
 
 
       var typeIndex = this.getType(type);
@@ -212,20 +211,20 @@ export default {
       return -1;
     },
 
-  handleChange: function (file,fileList){
-    console.log("change",file,fileList);
-    if(!this.beforeUpload(file.raw))
-      return ;
+    handleChange: function (file,fileList){
+      console.log("change",file,fileList);
+      if(!this.beforeUpload(file.raw))
+        return ;
 
-    var This = this;
-    //this.imageUrl = URL.createObjectURL(file.raw);
-    var reader = new FileReader();
-    reader.readAsDataURL(file.raw);
-    reader.onload = function(e){
-      // this.result // 这个就是base64编码了
-      This.imageUrl = this.result;
-    }
-  },
+      var This = this;
+      //this.imageUrl = URL.createObjectURL(file.raw);
+      var reader = new FileReader();
+      reader.readAsDataURL(file.raw);
+      reader.onload = function(e){
+        // this.result // 这个就是base64编码了
+        This.imageUrl = this.result;
+      }
+    },
 
     handleRemove:function (file){
       console.log('remove',file);
@@ -253,7 +252,7 @@ export default {
     //设置上传文件的文件名
     getName: function (name){
       var timestamp = Date.parse(new Date());
-      var newName = "render_" + timestamp + name;
+      var newName = "inspire_" + timestamp + name;
       console.log("newName",newName);
       return newName;
     },
@@ -290,28 +289,30 @@ export default {
     },
 
     submit: function (){
-        //上传两张图片并返回结果
+
+
+      //上传两张图片并返回结果
       var sketch = this.selectClothId.slice(33);
       var color= this.imageKey;
       let _this=this;
       _this.resultSketch = _this.selectClothId;
       _this.resultColor = _this.imageUrl
-      _this.renderResult = null
+      _this.inspireResult = null
 
       this.resultLoading = true;
       this.dialogVisible = true;
 
-      Render({
+      Inspire({
         originFileName: sketch,
         colorFileName: color
       }).then(res=>{
         console.log(res.data);
 
 
-        _this.renderResult = res.data.data.fileUrl
+        _this.inspireResult = res.data.data.fileUrl
 
         _this.resultLoading = false;
-        // this.$refs.renderResult.getData(sketch,color,res.data.data);
+        // this.$refs.inspireResult.getData(sketch,color,res.data.data);
 
         // console.log(color);
       }).catch(res=>{
@@ -324,8 +325,8 @@ export default {
     },
 
     collect:async function (){
-      var res =await this.$refs.renderResult.collect()
-      console.log("design Render",res)
+      var res =await this.$refs.inspireResult.collect()
+      console.log("design Inspire",res)
       return res
     },
 
@@ -343,5 +344,5 @@ export default {
 </script>
 
 <style>
-@import "../../assets/css/design/render.css";
+
 </style>

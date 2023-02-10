@@ -7,8 +7,10 @@
           :class="selectedMenuIdx == item.idx ? 'active' : ''"
           @click="handleSelect(item)"
         >
-          <i class="bi mr-2 text-xl" :class="'bi-' + item.icon"></i>
-          <span class="text-lg">{{ item.text }}</span>
+          <div class="flex is-justify-end">
+            <i class="bi mr-2 text-xl" :class="'bi-' + item.icon"></i>
+            <span class="text-lg">{{ item.text }}</span>
+          </div>
         </div>
       </template>
     </section>
@@ -55,7 +57,28 @@ export default {
           text: "推荐生成",
           icon: "box2-heart",
           path: "/design/recommend"
-        }
+        },
+        inspire:{
+          idx: 3,
+          name: "inspire",
+          text: "灵感迁移",
+          icon: "lightbulb",
+          path: "/design/inspire",
+        },
+        AIcolor:{
+          idx: 4,
+          name: "AIcolor",
+          text: "AI着色",
+          icon: "brush",
+          path: "/design/aicolor",
+        },
+        // test:{
+        //   idx: 5,
+        //   name: "test",
+        //   text: "测试页面",
+        //   icon: "",
+        //   path: "/design/test",
+        // }
       }
     };
   },

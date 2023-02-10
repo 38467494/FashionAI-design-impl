@@ -128,6 +128,12 @@ export default {
           bicon: 'bi bi-x-lg',
           name: "清屏",
           function: "clear"
+        },
+        {
+          icon: "",
+          bicon: 'bi bi-stars',
+          name: "AI渲染",
+          function: "airender"
         }
       ]
     };
@@ -186,6 +192,12 @@ export default {
     clear: function() {
       this.canvas.clear();
     },
+
+    // todo: 获取画框内的图像作为初始图像，弹出弹窗，支持框选，选择颜色、纹理、形状的取样图，可控制渲染程度
+    airender: function(){
+
+    },
+
     canvasToImg: function() {
       this.$emit("previewCloth");
     },
