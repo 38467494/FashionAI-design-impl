@@ -278,8 +278,11 @@ export default {
       var resultColor = _this.imageUrl
 
       AIColor({
-        originFileName: sketch,
-        colorFileName: color
+        personImage: sketch,
+        landscapeImage: color,
+        // colorPosition:着色部位, colorType:抽取颜色/纹理，目前支持颜色
+        bodySection: 0,
+        type: 0,
       }).then(res => {
         console.log(res.data);
 

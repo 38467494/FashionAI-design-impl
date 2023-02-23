@@ -179,6 +179,7 @@ export default {
           var list = files[nameList[i]];
           var arr = [];
           for(var j=0;j<list.length;j++){
+            console.log('看看list[j]'+list[j]);
             var name = this.$store.state.domain  + list[j];
             arr.push(name);
           }
@@ -200,6 +201,8 @@ export default {
       var typeIndex = this.getType(type);
       this.selectClothId = this.urls[typeIndex][index];
       this.selectClothType = type;
+
+      console.log(this.selectClothId);
 
     },
 
@@ -262,6 +265,9 @@ export default {
       console.log("success:",res,file)
       this.imageUrl =this.$store.state.domain  + res.key;
       this.imageKey = res.key;
+
+      console.log('上传成功handlesuccess:'+this.imageUrl);
+
       //2. 将信息传提给后端
       this.submit();
     },
@@ -270,6 +276,8 @@ export default {
     },
 
     handleUpload:function (){
+
+      console.log('上传进行时handleupload:'+this.imageUrl); // 这里的imageUrl还是base64编码
       var cloth = this.selectClothId;
       var color = this.imageUrl;
 
@@ -283,7 +291,7 @@ export default {
       }
 
       //1. 将图片上传到七牛云
-      if(this.imageKey==null)
+      if(this.imageKey==null) // 注意 这里的imageKey是空的，图片上传成功后，imageUrl会从base64变为下载外链
         this.$refs.upload.submit();
       else
         this.submit();
@@ -300,6 +308,10 @@ export default {
 
       this.resultLoading = true;
       this.dialogVisible = true;
+
+
+      console.log(sketch);
+      console.log(color);
 
       Render({
         originFileName: sketch,

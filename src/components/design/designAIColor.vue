@@ -6,14 +6,16 @@
         <el-tabs v-model="activeName" style="width: 100%">
           <template v-for="(item,index) in tabList">
             <el-tab-pane :key="index" :label="item.label" :name="item.name">
-              <image-show
+              <aicolor-image-show
+                ref="aicolorImageShow"
                 v-bind:name="item.name"
                 v-bind:module="moduleType"
-                v-bind:urls="landscapeUrls"
+                v-bind:urls="urls[index]"
                 v-bind:index="index"
+                v-bind:token="uploadData.token"
                 v-if="aicolorReady"
                 @selectCloth="selectCloth(arguments)">
-              </image-show>
+              </aicolor-image-show>
             </el-tab-pane>
           </template>
         </el-tabs>
@@ -68,7 +70,7 @@
         </div>
 
         <div>
-          <AtsButton expand type="primary" @click="handleUpload">颜色抽取</AtsButton>
+          <AtsButton expand type="primary" @click="handleUpload1">颜色抽取</AtsButton>
         </div>
 
       </section>
@@ -162,9 +164,12 @@ import AtsButton from "../common/AtsButton";
 import AicolorResult from "./aicolorResult.vue";
 import NavTemplate from "../collaborate/nav/navTemplate.vue";
 import LandscapeImageShow from "./landscapeImageShow.vue";
+import AicolorImageShow from "./aicolorImageShow";
 export default {
   name: "designAIColor",
-  components: {LandscapeImageShow, NavTemplate, AicolorResult, MyCollectDialog, AIColorResult, ImageShow, AtsButton},
+  components: {
+    AicolorImageShow,
+    LandscapeImageShow, NavTemplate, AicolorResult, MyCollectDialog, AIColorResult, ImageShow, AtsButton},
   data() {
     return {
       moduleType:"aicolor",
@@ -187,8 +192,17 @@ export default {
         },
       ],
       fileNames:[],
+      // 该模块模特服装urls写死，即预设少量模特图片，主要支持用户自己上传模特图片
       urls:[
-        [],[],[]
+        [
+
+        ],
+        [
+
+        ],
+        [
+
+        ]
       ],
       aicolorReady:false,  //记录图片是否加载完成
 
@@ -200,8 +214,14 @@ export default {
         key:""
       },
 
-      //图像相关
+      // 模特图像相关
+      selectClothId:'',
+      selectClothKey: '',
+      selectClothType:'',
+      selectClothFromLocal:false, // 判断模特图象是否来自本地上传，默认为false
+      selectClothBase64:'',
 
+      //图像相关
       dialogVisible: false,
       resultLoading: false,
       resultSketch: null,
@@ -345,25 +365,45 @@ export default {
       this.urls = [];
       this.fileNames = [];
       var nameList=["topList","bottomList","wholeList"];
-      initAIColor().then(res => {
-        console.log("init aicolor",res.data);
-        var files = res.data.data;
-        for(var i=0;i<nameList.length;i++){
-          var list = files[nameList[i]];
-          var arr = [];
-          for(var j=0;j<list.length;j++){
-            var name = this.$store.state.domain  + list[j];
-            arr.push(name);
-          }
-          _this.urls.push(arr);
-          _this.fileNames.push(list);
-        }
-        console.log(_this.urls,_this.fileNames);
 
-        //todo 接收世界风景图数据
-
-        _this.aicolorReady = true;
-      });
+      // 临时
+      // 注意，这里的urls在push具体的值前必须先设置为空array，否则子组件会报props default的错
+      _this.urls.push(
+        [
+          'http://resource.voguexplorer.com/fashion/aicolor/model/2c7562f723b6cccd72bbda89b9a2150.jpg',
+          'http://resource.voguexplorer.com/fashion/aicolor/model/white_tshirt.jpg',
+        ]
+      );
+      _this.urls.push(
+        [
+          'http://resource.voguexplorer.com/fashion/aicolor/model/ORAWK%5D%25%60M%291%40X_TFL98%25DDA.jpg',
+        ]
+      );
+      _this.urls.push(
+        [
+          'http://resource.voguexplorer.com/fashion/aicolor/model/0%24IW%5D%7B8%60UCUBGNN~K%29YA677.jpg',
+        ]
+      );
+      _this.aicolorReady = true;
+      // initAIColor().then(res => {
+      //   console.log("init aicolor",res.data);
+      //   // var files = res.data.data;
+      //   // for(var i=0;i<nameList.length;i++){
+      //   //   var list = files[nameList[i]];
+      //   //   var arr = [];
+      //   //   for(var j=0;j<list.length;j++){
+      //   //     var name = this.$store.state.domain  + list[j];
+      //   //     arr.push(name);
+      //   //   }
+      //   //   _this.urls.push(arr);
+      //   //   _this.fileNames.push(list);
+      //   // }
+      //
+      //
+      //   //todo 接收世界风景图数据
+      //
+      //   _this.aicolorReady = true;
+      // });
 
 
     },
@@ -373,12 +413,34 @@ export default {
       var index = msg[1];
       var type = msg[2];
       console.log("select aicolor",msg);
-
-
-      var typeIndex = this.getType(type);
-      this.selectClothId = this.urls[typeIndex][index];
       this.selectClothType = type;
 
+      if(index > 0){
+        this.selectClothFromLocal = false;
+        var typeIndex = this.getType(type);
+        this.selectClothId = this.urls[typeIndex][index-1];
+        console.log('选中模特'+this.selectClothId);
+      }
+      // 如果index=0，那么
+
+      else{
+        // 这里区分一下success、change和border（子组件中有三种回调情况）
+        // success获取到的modelUrl是七牛云的下载地址，是父组件最终需要的
+        // change获取到的modelUrl是图像base64，
+        // border是点到边框而没有选中upload组件，这种情况
+        console.log('回调情况'+msg[3]);
+        if(msg[3] === 'success'){
+          this.selectClothId = msg[4]; // qiniuyun key值
+          console.log('上传模特'+this.selectClothId);
+          this.handleUpload2();
+        }
+        else if(msg[3] === 'border'){
+          if(this.selectClothFromLocal === false){
+            this.selectClothId = '';
+          }
+        }
+        this.selectClothFromLocal = true;
+      }
     },
 
     getType:function(name){
@@ -388,6 +450,11 @@ export default {
           return i;
       }
       return -1;
+    },
+
+    // 子组件里的upload
+    getModel:function (modelUrl){
+      this.selectClothId = modelUrl;
     },
 
     handleChange: function (file,fileList){
@@ -447,38 +514,61 @@ export default {
       console.log("Error:",res );
     },
 
-    handleUpload:function (){
+    // 由于执行顺序的问题，调用子组件中handleUploadModel方法，其success钩子会在原本这个函数结束后才触发，所以拆成两块来写
+    handleUpload1: function (){
+      console.log('看看选择'+this.selectClothFromLocal);
+      if(this.selectClothFromLocal === true){
+        console.log(this.$refs.aicolorImageShow.length);
+        for(var i = 0; i<this.tabList.length; i++){
+          if(this.tabList[i].name === this.activeName){
+            console.log('看看儿子',this.$refs);
+            this.$refs.aicolorImageShow[i].handleUploadModel();
+            break;
+          }
+        }
+      }
+      else{
+        this.handleUpload2();
+      }
+    },
+    handleUpload2: function(){
       // 为了测试
-      this.selectClothId = 'http://resource.voguexplorer.com/20211018_1634548580000_MDA4NTE2NTcwMF8zXzFfMS5wbmc%3D.png';
-      this.imageUrl = 'http://resource.voguexplorer.com/20211018_1634548580000_MDA4NTE2NTcwMF8zXzFfMS5wbmc%3D.png';
-      this.imageKey = '20211018_1634548580000_MDA4NTE2NTcwMF8zXzFfMS5wbmc%3D.png';
-
+      //this.imageUrl = 'http://resource.voguexplorer.com/fashion/aicolor/landscape/c37369a3bd1f0f4096fb1a71327f909.jpg';
+      //this.imageKey = 'fashion/aicolor/landscape/c37369a3bd1f0f4096fb1a71327f909.jpg';
+      console.log('检查模特和颜色')
+      console.log(this.selectClothId);
+      console.log(this.imageUrl);
+      //
       var cloth = this.selectClothId;
-
 
       var color = this.imageUrl;
 
-      if(cloth == null){
+      if(cloth === null || cloth ===''){
         this.$message.error("请选择你想要的服装！");
         return;
       }
-      if(color == ''){
+      if(color === null || color === ''){
         this.$message.error("请上传颜色抽取图像！");
         return;
       }
 
       //1. 将图片上传到七牛云
-      if(this.imageKey==null)
+      if(this.imageKey==null){
         this.$refs.upload.submit();
+      }
       else
         this.submit();
     },
 
     submit: function (){
-      //上传两张图片并返回结果
+
+      console.log(this.selectClothId);
+      //上传两张图片并返回结果，此处传给后端接口，用的是key值，后端会自动补全url
       var sketch = this.selectClothId.slice(33);
       var color= this.imageKey;
       let _this=this;
+
+      // 此处传的是完整的url给aicolorresult子组件
       _this.resultSketch = _this.selectClothId;
       _this.resultColor = _this.imageUrl
       _this.aicolorResult = null
@@ -486,18 +576,27 @@ export default {
       this.resultLoading = true;
       this.dialogVisible = true;
 
-      AIColor({
-        originFileName: sketch,
-        colorFileName: color,
-        // colorPosition:着色部位, colorType:抽取颜色/纹理，目前支持颜色
-        colorPosition: 0,
-        colorType: 0,
-      }).then(res=>{
+      var bodyType = 0;
+      for(var i=0; i<this.tabList.length; i++){
+        if(this.tabList[i].name === this.activeName){
+          bodyType = i;
+          break;
+        }
+      }
+      console.log('模型着色类型'+bodyType);
+      var val = {
+        personImage: sketch,
+        landscapeImage: color,
+        bodySection: bodyType,
+        type: 0,
+      }
+      console.log(val);
+      AIColor(val).then(res=>{
         console.log('AI着色成功!');
         console.log(res.data);
 
 
-        _this.aicolorResult = res.data.data.fileUrl
+        _this.aicolorResult = res.data.data.targetUrl
 
         _this.resultLoading = false;
         // this.$refs.renderResult.getData(sketch,color,res.data.data);
@@ -517,8 +616,6 @@ export default {
       console.log("design AIColor",res)
       return res
     },
-
-
 
     //上传后端待处理
 

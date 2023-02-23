@@ -47,7 +47,7 @@ export function AIColor(val){
   console.log("aicolor API",val);
   instance.defaults.headers.post['Content-Type'] = 'application/json';
   // var data = qs.stringify(val);
-  return axios.post('http://10.250.111.166:8888/AICOLOR/doColor',val);
+  return axios.post('http://10.250.111.166:8888/AICOLOR/doColor', val);
 }
 
 export function initAIColor(){
@@ -62,15 +62,3 @@ export function initOutfitGAN(){
   return axios.get(address+"/outfit/init");
 }
 
-export function ripupload(params, token){
-  return axios.post(
-    "http://upload-z2.qiniup.com",
-    params,
-    {
-      headers:{
-        'Content-Type':'multipart/form-data',
-        token
-      }
-    }
-    )
-}
