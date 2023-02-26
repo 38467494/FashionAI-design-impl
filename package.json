@@ -10,6 +10,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@jyeontu/jvuewheel": "^0.6.0",
+    "@run27017/vue-chat": "^0.1.1",
     "axios": "^0.24.0",
     "crypto-js": "^4.1.1",
     "dns": "^0.2.2",
@@ -22,6 +24,7 @@
     "swiper": "^8.4.2",
     "vcolorpicker": "^1.1.0",
     "vue": "^2.5.2",
+    "vue-beautiful-chat": "^2.5.0",
     "vue-router": "^3.0.1",
     "vue-waterfall2": "^1.10.1",
     "vuex": "^3.6.2"

@@ -19,6 +19,12 @@
       <!-- 这里使用嵌套路由进行页面的跳转 -->
       <router-view></router-view>
     </section>
+    <j-hover-btn bgColor = 'pink'
+                 width = '80'
+                 text = ''
+                 :btn-style = "btnStyle"
+                 @hoverBtnClick = "hoverBtnClick()">
+    </j-hover-btn>
   </div>
 </template>
 
@@ -28,6 +34,7 @@
 
 <script>
 import Match from "./design/match.vue";
+
 export default {
   components: { Match },
 
@@ -72,13 +79,19 @@ export default {
           icon: "brush",
           path: "/design/aicolor",
         },
-        // test:{
-        //   idx: 5,
-        //   name: "test",
-        //   text: "测试页面",
-        //   icon: "",
-        //   path: "/design/test",
-        // }
+        test:{
+          idx: 5,
+          name: "test",
+          text: "测试页面",
+          icon: "",
+          path: "/design/test",
+        }
+      },
+      btnStyle:{
+        "fontSize":'small',
+        "top":'60vh',
+        "left":'90vw',
+        "backgroundImage":'url(http://resource.voguexplorer.com/fashion/robot/robot.png)',
       }
     };
   },
@@ -218,6 +231,11 @@ export default {
     //监视
     handleClick(tab, event) {
       console.log(tab, event);
+    },
+
+    // 悬浮按钮设计
+    hoverBtnClick(){
+      console.log('悬浮按钮点击事件');
     }
   }
 };

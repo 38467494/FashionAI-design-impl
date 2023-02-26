@@ -36,6 +36,15 @@ import "./assets/css/input-number-override.css";
 import "./assets/css/step-override.css";
 import "./assets/css/dropdown-override.css";
 
+// 悬浮按钮，但是这个库的按钮移动抗锯齿效果不是很好
+import jvuewheel from '@jyeontu/jvuewheel'
+import '@jyeontu/jvuewheel/lib/jvuewhell.css'
+Vue.use(jvuewheel);
+
+// 聊天框A
+import Chat from 'vue-beautiful-chat'
+Vue.use(Chat)
+
 
 /* eslint-disable no-new */
 new Vue({
