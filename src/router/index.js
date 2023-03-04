@@ -219,7 +219,7 @@ const routes = new Router({
           path: 'test',
           name: 'test',
           component: designTest
-        }
+        },
       ]
     },
 

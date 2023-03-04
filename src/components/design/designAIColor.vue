@@ -126,7 +126,6 @@
                   <i slot="suffix" class="el-input__icon el-icon-search"></i>
                 </el-input>
               </div>
-<!--             todo：参考imageshow组件 显示风景图-->
               <div>
                 <template v-for="(item,index) in selectedImages">
                   <div :key="index">
@@ -654,7 +653,7 @@ export default {
       console.log('msg2:'+msg[2]); // 图片名字
       this.imageUrl = this.landscapeUrls[msg[1]];
       this.landscapeVisible = false;
-    }
+    },
 
   },
 

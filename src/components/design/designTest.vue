@@ -1,6 +1,8 @@
 <template>
   <div>
     <div v-drag class="drag">
+    </div>
+    <div>
       <template>
         <beautiful-chat
           :participants="participants"
@@ -24,16 +26,14 @@
           :messageStyling="messageStyling"
           @onType="handleOnType"
           @edit="editMessage">
-<!--          一些插槽用法-->
+          <!--          一些插槽用法-->
           <template v-slot:header>
-            Good chat between {{participants.map(m=>m.name).join(' & ')}}
+            时尚小谙
           </template>
         </beautiful-chat>
-
       </template>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -41,10 +41,10 @@
 import {getUploadToken, ripupload} from "../../api/design";
 import {showError} from "./alert";
 import AtsButton from "../common/AtsButton.vue";
-// import CloseIcon from 'vue-beautiful-chat/src/assets/close-icon.png'
-// import OpenIcon from 'vue-beautiful-chat/src/assets/logo-no-bg.svg'
-// import FileIcon from 'vue-beautiful-chat/src/assets/file.svg'
-// import CloseIconSvg from 'vue-beautiful-chat/src/assets/close.svg'
+import CloseIcon from '../../assets/icons/x-circle.svg'
+import OpenIcon from '../../assets/icons/chat-dots.svg'
+import FileIcon from '../../assets/icons/file-earmark-check.svg'
+import CloseIconSvg from '../../assets/icons/arrow-through-heart.svg'
 
 
 export default {
@@ -69,23 +69,19 @@ export default {
     return {
       icons:{
         open:{
-          // img: OpenIcon,
-          img: 'http://euphonium.cn/develop_team/zcx.png',
-          name: 'default',
+          img: OpenIcon,
+          name: '小谙',
         },
         close:{
-          // img: CloseIcon,
-          img: 'http://euphonium.cn/develop_team/zcx.png',
+          img: CloseIcon,
           name: 'default',
         },
         file:{
-          // img: FileIcon,
-          img: '',
+          img: FileIcon,
           name: 'default',
         },
         closeSvg:{
-          // img: CloseIconSvg,
-          img: '',
+          img: CloseIconSvg,
           name: 'default',
         },
       },
@@ -93,17 +89,12 @@ export default {
         {
           id: 'user1',
           name: 'Matteo',
-          imageUrl: '/u/1915989?s=230&v=4'
+          imageUrl: 'http://euphonium.cn/develop_team/zcx.png'
         },
-        {
-          id: 'user2',
-          name: 'Support',
-          imageUrl: '/u/37018832?s=200&v=4'
-        }
       ], //对话的所有参与者的列表。“ name”是用户名，“ id”用于建立消息作者，“ imageUrl”是用户头像。
-      titleImageUrl: '/66f9/img/avatars-teams/ava_0001-34.png',
+      titleImageUrl: 'http://euphonium.cn/develop_team/zcx.png',
       messageList: [
-        { type: 'text', author: `me`, data: { text: `Say yes!` } },
+        { type: 'text', author: `me`, data: { text: `` } },
         { type: 'text', author: `user1`, data: { text: `No.` } },
 
       ], // 显示的消息列表，可以动态分页和调整
@@ -116,7 +107,8 @@ export default {
           text: '#ffffff'
         },
         launcher: {
-          bg: '#4e8cff'
+          //bg: '#4e8cff'
+          bg: '#b5eafd'
         },
         messageList: {
           bg: '#ffffff'
@@ -168,6 +160,9 @@ export default {
       const m = this.messageList.find(m => m.id === message.id);
       m.isEdited = true;
       m.data.text = message.data.text;
+    },
+    testA(){
+      console.log('aaaaa');
     }
   },
 }

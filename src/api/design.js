@@ -24,6 +24,10 @@ export function OutfitGAN(val){
   return axios.post(address + '/outfit/doOutfitGAN',val);
 }
 
+export function initOutfitGAN(){
+  return axios.get(address+"/outfit/init");
+}
+
 export function Render(val){
   console.log("render API",val);
   instance.defaults.headers.post['Content-Type'] = 'application/json';
@@ -54,11 +58,21 @@ export function initAIColor(){
   return axios.get(address + '/aicolor/init');
 }
 
+export function judgeRobot(val){
+  return axios.post('http://10.249.178.62:5010/api/judge',val);
+}
+
+export function recommendRobot(val){
+  return axios.post('http://10.250.111.166:8888/OutfitRecommend/styleList', val);
+}
+
+export function detailRobot(val){
+  return axios.post('http://10.250.111.166:8888/OutfitRecommend/getImage',val);
+}
+
 export function getUploadToken(data){
   return axios.get(address+'/qiniuyun/uploadToken',{params:data});
 }
 
-export function initOutfitGAN(){
-  return axios.get(address+"/outfit/init");
-}
+
 

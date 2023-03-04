@@ -1,5 +1,6 @@
 <template>
   <div class="flex" style="height: 100%;">
+    <chat-robot style="z-index: 777"></chat-robot>
     <section class="flex-none border-r p-0" style="min-height: 300px">
       <template v-for="(item, index) in sidenavs">
         <div
@@ -19,12 +20,12 @@
       <!-- 这里使用嵌套路由进行页面的跳转 -->
       <router-view></router-view>
     </section>
-    <j-hover-btn bgColor = 'pink'
-                 width = '80'
-                 text = ''
-                 :btn-style = "btnStyle"
-                 @hoverBtnClick = "hoverBtnClick()">
-    </j-hover-btn>
+<!--    <j-hover-btn bgColor = 'pink'-->
+<!--                 width = '80'-->
+<!--                 text = ''-->
+<!--                 :btn-style = "btnStyle"-->
+<!--                 @hoverBtnClick = "hoverBtnClick()">-->
+<!--    </j-hover-btn>-->
   </div>
 </template>
 
@@ -34,9 +35,10 @@
 
 <script>
 import Match from "./design/match.vue";
+import ChatRobot from "./design/chatRobot";
 
 export default {
-  components: { Match },
+  components: {ChatRobot, Match },
 
   name: "design",
   data() {
@@ -85,7 +87,7 @@ export default {
           text: "测试页面",
           icon: "",
           path: "/design/test",
-        }
+        },
       },
       btnStyle:{
         "fontSize":'small',
