@@ -195,7 +195,7 @@ export default {
 
     // todo: 获取画框内的图像作为初始图像，弹出弹窗，支持框选，选择颜色、纹理、形状的取样图，可控制渲染程度
     airender: function(){
-
+      this.$emit("renderCloth");
     },
 
     canvasToImg: function() {

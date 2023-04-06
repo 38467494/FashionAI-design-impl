@@ -175,8 +175,10 @@ export default {
           else if(this.module == "vton"){
             this.$emit("selectCloth",e.currentTarget,index,this.name);
           }
-
           else if(this.module == "aicolor"){
+            this.$emit("selectCloth",e.currentTarget,index,this.name);
+          }
+          else if(this.module == "inspire"){
             this.$emit("selectCloth",e.currentTarget,index,this.name);
           }
 

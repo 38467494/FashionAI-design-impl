@@ -73,9 +73,9 @@
 
       <!-- 右栏 结果大图 -->
       <div class="basis-1/2 pl-4 flex flex-col">
-        <div class="flex-none sm-caption">渲染生成结果</div>
+        <div class="flex-none sm-caption">AI着色结果</div>
         <div class="grow">
-          <div class="img-small" v-loading="resultImageLoading">
+          <div class="img-big" v-loading="resultImageLoading">
             <el-image
               class="rounded-lg border-2 overflow-hidden"
               :src="resultImage"
@@ -113,10 +113,18 @@ export default {
       type: String,
       default: null,
     },
+    sketchFromLocal:{
+      type: Boolean,
+      default: false,
+    },
     color: {
       type: String,
       default: null
     },
+    bodyType:{
+      type: Number,
+      default: 0,
+    }, // 在目前的业务逻辑，该值在result页面不会变
     result: {
       type: String,
       default: null
@@ -174,18 +182,7 @@ export default {
       resultImageLoading: false,
 
       //历史记录
-      history: [
-        // {
-        //   setch:"http://shoplook.voguexplorer.com/fashion/render/origin/202.jpg",
-        //   color: "http://shoplook.voguexplorer.com/fashion/collaborate/template/alberta-g1513f2ea5_1920.jpg",
-        //   result: "http://shoplook.voguexplorer.com/fashion/collaborate/template/alberta-g1513f2ea5_1920.jpg",
-        // },
-        // {
-        //   setch:"http://shoplook.voguexplorer.com/fashion/render/origin/202.jpg",
-        //   color: "http://shoplook.voguexplorer.com/fashion/collaborate/template/art-74050_1920.jpg",
-        //   result: "http://shoplook.voguexplorer.com/fashion/collaborate/template/art-74050_1920.jpg",
-        // }
-      ],
+      history: [],
 
       currentPic: 0, //当前走马灯图片的index
       selectList: [false],
@@ -277,27 +274,27 @@ export default {
 
       var resultColor = _this.imageUrl
 
-      AIColor({
+
+
+      var val = {
         personImage: sketch,
         landscapeImage: color,
-        // colorPosition:着色部位, colorType:抽取颜色/纹理，目前支持颜色
-        bodySection: 0,
+        bodySection: this.bodyType,
         type: 0,
-      }).then(res => {
+      }
+      AIColor(val).then(res => {
+        console.log("换一张：");
         console.log(res.data);
-
-        var aicolorResult = res.data.data.fileUrl
+        var aicolorResult = res.data.data.targetUrl
         this.resultImage = aicolorResult
-
         // console.log(_this.history)
-
         _this.history.push({
           sketch: _this.sketch,
           color: resultColor,
           result: aicolorResult
         })
-
         _this.resultImageLoading = false;
+
         console.log(_this.history);
         for (var i = 0; i < _this.selectList.length; i++)
           _this.selectList[i] = false;
@@ -322,6 +319,10 @@ export default {
         //因为当前的color和result的url是有过期时间的，加入需要收藏，要重新上传图片以长期保存
         workDescription.color = await uploadURL("aicolor", workDescription.color)
         workDescription.result = await uploadURL("aicolor", workDescription.result)
+        // 由于支持自传模特，所以要判断一下模特图像
+        if(this.sketchFromLocal){
+          workDescription.sketch = await uploadURL("aicolor", workDescription.sketch)
+        }
         console.log(workDescription)
         var info = {
           category: "aicolor",
@@ -348,5 +349,5 @@ export default {
 </script>
 
 <style scoped>
-
+@import "../../assets/css/design/aicolorResult.css";
 </style>

@@ -4,7 +4,7 @@ import da from "element-ui/src/locale/lang/da";
 import instance from "../api/http";
 
 const address = 'http://10.249.176.82:8888'
-// const address = 'http://localhost:8080'
+//const address = 'http://10.250.111.166:8888'
 
 export function MMCGAN(val){
   console.log("MMCGAN API",val);
@@ -39,23 +39,24 @@ export function initRender(){
   return axios.get(address + '/render/init');
 }
 
-// todo
 export function Inspire(val){
-
+  console.log('inspire API', val);
+  instance.defaults.headers.post['Content-Type'] = 'application/json';
+  return axios.post(address + '/AIRender/DoAIRender', val);
 }
 export function initInspire(){
-
+  return axios.get(address + '/AIRender/init');
 }
 
 export function AIColor(val){
   console.log("aicolor API",val);
   instance.defaults.headers.post['Content-Type'] = 'application/json';
   // var data = qs.stringify(val);
-  return axios.post('http://10.250.111.166:8888/AICOLOR/doColor', val);
+  return axios.post(address + '/AICOLOR/doColor', val);
 }
 
 export function initAIColor(){
-  return axios.get(address + '/aicolor/init');
+  return axios.get(address + '/AIRender/initview');
 }
 
 export function judgeRobot(val){
@@ -63,11 +64,16 @@ export function judgeRobot(val){
 }
 
 export function recommendRobot(val){
-  return axios.post('http://10.250.111.166:8888/OutfitRecommend/styleList', val);
+  return axios.post(address + '/OutfitRecommend/styleList', val);
 }
 
 export function detailRobot(val){
-  return axios.post('http://10.250.111.166:8888/OutfitRecommend/getImage',val);
+  return axios.post(address + '/OutfitRecommend/getImage',val);
+}
+
+
+export function chatGPTAPI(val){
+  return axios.post('http://10.250.111.166:8888/chat/chatgpt', val)
 }
 
 export function getUploadToken(data){

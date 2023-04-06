@@ -13,17 +13,15 @@
                 ref="uploadsub"
                 action="http://upload-z2.qiniup.com"
                 accept="image"
+                :show-file-list="false"
                 :data="uploadData"
                 :auto-upload = "false"
-                :multiple="false"
+                :multiple="true"
                 :on-change = "handleChange"
-                :on-remove = "handleRemove"
                 :on-success="handleSuccess"
                 :before-upload="beforeUpload"
                 :on-Error="handleError"
                 :file-list="fileList"
-                :limit = "1"
-                :on-exceed="handleExceed"
               >
                 <el-image v-if="modelUrl" :src="modelUrl" class="avatar items-start" fit="contain">
                 </el-image>
@@ -330,7 +328,10 @@ export default {
 
     // upload相关钩子
     handleChange: function (file,fileList){
-      console.log("康康文件114514",file,fileList);
+      if(fileList.length>1){
+        fileList.splice(0,1);
+      }
+      console.log(fileList[0]);
       if(!this.beforeUpload(file.raw))
         return ;
 

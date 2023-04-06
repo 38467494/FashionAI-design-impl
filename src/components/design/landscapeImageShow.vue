@@ -18,7 +18,8 @@
             </div>
 
             <div class="show-card" style="padding: 10px;" @click="select($event,subitem,index*4+subindex)" :class="getClass(index*4+subindex)" v-else>
-              <el-image :src="subitem" v-if="subitem" fit="fill"></el-image>
+              <el-image :src="subitem.url" v-if="subitem.url" fit="fill"></el-image>
+              <div class="mb-2 text-black font-bold" v-if="isDescriptionVisible">{{subitem.description}}</div>
             </div>
 
           </el-col>
@@ -153,8 +154,8 @@ export default {
       this.changePage(1)
     },
 
-    select:function (e,url,index){
-      if(url == '/static/transparent.png')
+    select:function (e,item,index){
+      if(item.url === '/static/transparent.png')
         return;
 
       index = (this.page -1 )*this.pageSize + index
@@ -162,22 +163,22 @@ export default {
 
       // console.log("select",index)
 
-      //match
-      if(this.module == "match")
+      // 这些都不管
+      if(this.module === "match")
         this.$emit('selectCloth',e.currentTarget,this.index,index,this.name);
-      else if(this.module == "recommendation"){
+      else if(this.module === "recommendation"){
         console.log("recommendation",this.name)
         this.$emit('selectCloth',e.currentTarget,index,this.name,);
       }
-      else if(this.module == "render"){
+      else if(this.module === "render"){
         this.$emit("selectCloth",e.currentTarget,index,this.name);
       }
-      else if(this.module == "vton"){
+      else if(this.module === "vton"){
         this.$emit("selectCloth",e.currentTarget,index,this.name);
       }
-
-      else if(this.module == "aicolor"){
-        this.$emit("selectCloth",e.currentTarget,index,this.name);
+      // 只看aicolor
+      else if(this.module === "aicolor"){
+        this.$emit("selectLandscapeImage",e.currentTarget,index,this.name);
       }
 
 
@@ -220,13 +221,14 @@ export default {
 
       this.divided_URLs = divideArr;
 
-      console.log("divideurl",this.divided_URLs)
+      console.log("divideurl",this.divided_URLs);
     },
     changePage:function (page){
       // console.log("change page",page,this.page)
       this.page = page
       this.pageItem = this.divided_URLs[page-1];
       // console.log("change page",page,this.page)
+      console.log(this.pageItem);
     },
     getClass: function (index){
       console.log("getClass",index, this.selected)

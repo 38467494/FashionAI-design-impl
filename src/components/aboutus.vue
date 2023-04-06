@@ -140,6 +140,24 @@ export default {
           personalPage: "",
           img: "/static/member/zhangxinyu.jpg"
         },
+        {
+          name:"李亚子",
+          education: "硕士在读",
+          personalPage: "",
+          img: "/static/member/liyazi.jpg",
+        },
+        {
+          name:"董明龙",
+          education: "硕士在读",
+          personalPage: "",
+          img: "/static/member/dongminglong.jpg",
+        },
+        {
+          name:"张纯鑫",
+          education: "硕士在读",
+          personalPage: "",
+          img: "/static/member/zhangchunxin.jpg",
+        },
       ],
       publications: [
         {

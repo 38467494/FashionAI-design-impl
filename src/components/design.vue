@@ -1,6 +1,5 @@
 <template>
   <div class="flex" style="height: 100%;">
-    <chat-robot style="z-index: 777"></chat-robot>
     <section class="flex-none border-r p-0" style="min-height: 300px">
       <template v-for="(item, index) in sidenavs">
         <div
@@ -35,10 +34,9 @@
 
 <script>
 import Match from "./design/match.vue";
-import ChatRobot from "./design/chatRobot";
 
 export default {
-  components: {ChatRobot, Match },
+  components: {Match},
 
   name: "design",
   data() {
@@ -81,13 +79,13 @@ export default {
           icon: "brush",
           path: "/design/aicolor",
         },
-        test:{
-          idx: 5,
-          name: "test",
-          text: "测试页面",
-          icon: "",
-          path: "/design/test",
-        },
+        // test:{
+        //   idx: 5,
+        //   name: "test",
+        //   text: "测试页面",
+        //   icon: "",
+        //   path: "/design/test",
+        // },
       },
       btnStyle:{
         "fontSize":'small',

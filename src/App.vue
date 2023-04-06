@@ -12,7 +12,9 @@
 <!--    </el-header>-->
     <el-main :class="needWhiteBg ? 'bg-white' : ''">
 <!--      <div style="height: 60px;"></div>-->
-      <router-view style="width: 100%;"></router-view>
+      <router-view style="width: 100%;">
+      </router-view>
+      <chat-robot style="z-index: 9999999"></chat-robot>
     </el-main>
 
     <el-footer>
@@ -27,9 +29,10 @@ import adminTab from "../src/components/admin/adminTab.vue";
 import myFooter from "./components/footer.vue";
 import AtsNavMenu from "./components/common/AtsNavMenu";
 import GradientBackground from "./components/common/GradientBackground.vue";
+import chatRobot from "./components/design/chatRobot";
 
 const routeNamesWhichNeedsWhiteBackground = [
-  'home', 
+  'home',
   'aboutus',
   'login',
   'adminLogin',
@@ -45,6 +48,7 @@ export default {
     adminTab,
     myFooter,
     GradientBackground,
+    chatRobot,
   },
   mounted() {
     this.needWhiteBg = !(routeNamesWhichNeedsWhiteBackground.includes(this.$route.name));

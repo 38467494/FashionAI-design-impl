@@ -49,8 +49,6 @@
                 <i class="uploader-tips-txt bi bi-plus-circle "></i>
                 <p class="uploader-tips-txt">抽取图片颜色合成衣服</p>
               </div>
-
-
             </el-upload>
           </div>
         </div>
@@ -295,6 +293,8 @@ export default {
         this.$refs.upload.submit();
       else
         this.submit();
+      console.log('看看结束没有');
+
     },
 
     submit: function (){

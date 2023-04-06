@@ -230,7 +230,8 @@
 </template>
 <script>
 import { mapState } from "vuex";
-import { getRecommendationList } from "@/api/recommendationAPI";
+// import { getRecommendationList } from "@/api/recommendationAPI";
+import { getRecommendationList } from "../../api/recommendationAPI"
 import AtsButton from "../common/AtsButton.vue";
 
 export default {

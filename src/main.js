@@ -45,6 +45,8 @@ Vue.use(jvuewheel);
 import Chat from 'vue-beautiful-chat'
 Vue.use(Chat)
 
+import {Loading} from "element-ui";
+Vue.use(Loading.directive);
 
 /* eslint-disable no-new */
 new Vue({
