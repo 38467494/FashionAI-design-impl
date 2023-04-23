@@ -55,7 +55,7 @@ export function AIColor(val){
   return axios.post(address + '/AICOLOR/doColor', val);
 }
 
-export function initAIColor(){
+export function initLandscape(){
   return axios.get(address + '/AIRender/initview');
 }
 

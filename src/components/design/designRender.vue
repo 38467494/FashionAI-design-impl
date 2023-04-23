@@ -29,6 +29,7 @@
               ref="upload"
               action="http://upload-z2.qiniup.com"
               accept="image"
+              :show-file-list="false"
               :data="uploadData"
               :auto-upload = "false"
               :multiple="false"
@@ -36,10 +37,7 @@
               :on-remove = "handleRemove"
               :on-success="handleSuccess"
               :before-upload="beforeUpload"
-              :on-Error="handleError"
               :file-list="fileList"
-              :limit = "1"
-              :on-exceed="handleExceed"
             >
               <el-image v-if="imageUrl" :src="imageUrl" class="avatar" fit="contain">
               </el-image>
@@ -50,7 +48,26 @@
                 <p class="uploader-tips-txt">抽取图片颜色合成衣服</p>
               </div>
             </el-upload>
+            <div class="mb-2 text-black font-bold" v-if="imageDescription">{{imageDescription}}</div>
           </div>
+        </div>
+        <el-divider></el-divider>
+        <div class="flex">
+          <section class="basis-1/2">
+            <div class="text-left font-bold text-black">世界风景图</div>
+          </section>
+          <section class="basis-1/2 flex justify-end">
+            <el-link style="color:blue" @click="moreLandscapeImages">更多>></el-link>
+          </section>
+        </div>
+        <div class="flex">
+          <el-row type="flex">
+            <template v-for="(item,index) in previewImages">
+              <div class="show-card" style="width: 25%" @click="selectLandscapeImageFromPreviewImages(item)">
+                <el-image :src="item.url" v-if="item.url" fit="contain"></el-image>
+              </div>
+            </template>
+          </el-row>
         </div>
         <div>
           <AtsButton expand type="primary" @click="handleUpload">提交</AtsButton>
@@ -68,6 +85,51 @@
 <!--        v-loading="resultLoading"  v-bind:uploadToken="uploadData.token"></render-result>-->
 <!--      </el-dialog>-->
     </div>
+    <div>
+      <el-dialog :visible.sync="landscapeVisible" width="55%"
+                 style="min-width: 840px;">
+        <template #title>
+          <div class="text-left font-bold text-2xl px-5 py-2">世界风景图</div>
+        </template>
+        <slot></slot>
+        <template>
+          <div class="flex divide-x px-6">
+            <section class="basis-1/6 flex-none border-r p-0" style="min-height: 300px">
+              <template v-for="(item, index) in landscapeNavs">
+                <div
+                  class="ats-sidenav"
+                  :class="selectedContinentIdx === item.idx ? 'active' : ''"
+                  @click="selectLandscapeImages(item)"
+                >
+                  <div class="flex is-justify-end">
+                    <i class="bi mr-2 text-xl" :class="'bi-' + item.icon"></i>
+                    <span class="text-lg">{{ item.continent }}</span>
+                  </div>
+                </div>
+              </template>
+            </section>
+            <section class="basis-5/6">
+              <!--              <div style="width: 50%">-->
+              <!--                <el-input-->
+              <!--                  placeholder="请输入你想选择的风景地名称"-->
+              <!--                  v-model="searchLandscape">-->
+              <!--                  <i slot="suffix" class="el-input__icon el-icon-search"></i>-->
+              <!--                </el-input>-->
+              <!--              </div>-->
+              <div style="margin-left: 10px">
+                <landscape-image-show
+                  v-bind:module="moduleType"
+                  v-bind:urls="selectedImages"
+                  v-bind:isDescriptionVisible="true"
+                  v-if="landscapeReady"
+                  @selectLandscapeImage="selectLandscapeImage(arguments)">
+                </landscape-image-show>
+              </div>
+            </section>
+          </div>
+        </template>
+      </el-dialog>
+    </div>
   </div>
 
 </template>
@@ -76,7 +138,7 @@
 <script>
 import ImageShow from "./ImageShow";
 import RenderResult from "./renderResult";
-import {Render} from "../../api/design";
+import {initLandscape, Render} from "../../api/design";
 import renderResult from "./renderResult";
 import * as qiniu from "qiniu-js";
 import {getUploadToken} from "../../api/design";
@@ -85,9 +147,10 @@ import {showError} from "./alert";
 import MyCollectDialog from "../my-collect-dialog";
 import {getCoverImg, getImg} from "../personal/coverFunction";
 import AtsButton from "../common/AtsButton";
+import LandscapeImageShow from "./landscapeImageShow.vue";
 export default {
   name: "designRender",
-  components: {MyCollectDialog, RenderResult, ImageShow, AtsButton},
+  components: {MyCollectDialog, RenderResult, ImageShow, AtsButton, LandscapeImageShow},
   data() {
     return {
       moduleType:"render",
@@ -137,6 +200,7 @@ export default {
       fileList:[],
       imageUrl :null, //图片在七牛云上的url，通过这个url可以直接访问到图片
       imageKey:null,  //图片上传到七牛云上，返回的key
+      imageDescription:"",
       uploadData: {
         token:"",
         key:""
@@ -149,6 +213,142 @@ export default {
       resultSketch: null,
       resultColor:null,
       renderResult: null,
+
+      //世界风景图相关
+      landscapeVisible:false,
+      landscapeNavs:[
+        {
+          continent: '热门图片',
+          icon:'house-heart',
+          idx: 0,
+        },
+        {
+          continent: '北美洲',
+          icon:'apple',
+          idx: 1,
+        },
+        {
+          continent: '大洋洲',
+          icon:'tsunami',
+          idx: 2,
+        },
+        {
+          continent: '非洲',
+          icon:'patch-question',
+          idx: 3,
+        },
+        {
+          continent: '加勒比',
+          icon:'patch-question',
+          idx: 4,
+        },
+        {
+          continent: '南美洲',
+          icon:'patch-question',
+          idx: 5,
+        },
+        {
+          continent: '欧洲',
+          icon:'patch-question',
+          idx: 6,
+        },
+        {
+          continent: '亚洲',
+          icon:'patch-question',
+          idx: 7,
+        },
+        {
+          continent: '中东',
+          icon:'patch-question',
+          idx: 8,
+        },
+        {
+          continent: '中美洲',
+          icon:'patch-question',
+          idx: 9,
+        },
+      ],
+      selectedContinentIdx:0,
+      landscapeImages:[
+        {
+          continent: "热门图片",
+          description: "故宫红墙",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/forbiddencity.jpeg"
+        },
+        {
+          continent: "热门图片",
+          description: "埃菲尔铁塔",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/EiffelTower.jpg"
+        },
+        {
+          continent: "热门图片",
+          description: "卢浮宫",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/Louvre.jpg"
+        },
+        {
+          continent: "热门图片",
+          description: "极光",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/aurora.jpg"
+        },
+      ],
+      selectedImages:[
+        {
+          continent: "热门图片",
+          description: "故宫红墙",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/forbiddencity.jpeg"
+        },
+        {
+          continent: "热门图片",
+          description: "埃菲尔铁塔",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/EiffelTower.jpg"
+        },
+        {
+          continent: "热门图片",
+          description: "卢浮宫",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/Louvre.jpg"
+        },
+        {
+          continent: "热门图片",
+          description: "极光",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/aurora.jpg"
+        },
+      ],
+      previewImages:[
+        {
+          continent: "热门图片",
+          description: "故宫红墙",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/forbiddencity.jpeg"
+        },
+        {
+          continent: "热门图片",
+          description: "埃菲尔铁塔",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/EiffelTower.jpg"
+        },
+        {
+          continent: "热门图片",
+          description: "卢浮宫",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/Louvre.jpg"
+        },
+        {
+          continent: "热门图片",
+          description: "极光",
+          id: -1,
+          url: "http://resource.voguexplorer.com/fashion/aicolor/landscape/aurora.jpg"
+        },
+      ],
+      landscapeReady:true,
+      searchLandscape:"",
 
     };
   },
@@ -165,28 +365,59 @@ export default {
     },
   methods: {
     //获取数据库中图像数据
-    getFiles: function(){
-      let _this = this;
+    getFiles: async function(){
+      // let _this = this;
       this.urls = [];
       this.fileNames = [];
       var nameList=["jacketList","topList","jeansList","shortsList","skirtList","bagList","hatList"];
-      initRender().then(res => {
-        console.log("init render",res.data);
-        var files = res.data.data;
-        for(var i=0;i<nameList.length;i++){
-          var list = files[nameList[i]];
-          var arr = [];
-          for(var j=0;j<list.length;j++){
-            console.log('看看list[j]'+list[j]);
-            var name = this.$store.state.domain  + list[j];
-            arr.push(name);
-          }
-          _this.urls.push(arr);
-          _this.fileNames.push(list);
+      const res1 = await initRender();
+      var files = res1.data.data;
+      for(var i=0;i<nameList.length;i++){
+        var list = files[nameList[i]];
+        var arr = [];
+        for(var j=0;j<list.length;j++){
+          var name = this.$store.state.domain  + list[j];
+          arr.push(name);
         }
-        console.log(_this.urls,_this.fileNames);
-        _this.renderReady = true;
+        this.urls.push(arr);
+        this.fileNames.push(list);
+      }
+      this.renderReady = true;
+
+      const res2 = await initLandscape();
+      var landscapeList = res2.data;
+      landscapeList.forEach((i)=>{
+        this.landscapeImages.push(i);
       })
+      this.aicolorReady = true;
+
+      // initRender().then(res => {
+      //   console.log("init render",res.data);
+      //   var files = res.data.data;
+      //   for(var i=0;i<nameList.length;i++){
+      //     var list = files[nameList[i]];
+      //     var arr = [];
+      //     for(var j=0;j<list.length;j++){
+      //       console.log('看看list[j]'+list[j]);
+      //       var name = this.$store.state.domain  + list[j];
+      //       arr.push(name);
+      //     }
+      //     _this.urls.push(arr);
+      //     _this.fileNames.push(list);
+      //   }
+      //   console.log(_this.urls,_this.fileNames);
+      //   _this.renderReady = true;
+      // })
+
+      // initLandscape().then(res => {
+      //   console.log("init aicolor",res.data);
+      //   var landscapeList = res.data;
+      //   landscapeList.forEach((i)=>{
+      //     _this.landscapeImages.push(i);
+      //   })
+      //   console.log(_this.landscapeImages);
+      //   _this.aicolorReady = true;
+      // });
     },
     //某个tab中某张图片被选中，出发该函数，需要修改元素的className和保存id
     selectCloth: function(msg){
@@ -214,6 +445,9 @@ export default {
     },
 
   handleChange: function (file,fileList){
+    if(fileList.length>1){
+      fileList.splice(0,1);
+    }
     console.log("change",file,fileList);
     if(!this.beforeUpload(file.raw))
       return ;
@@ -225,6 +459,8 @@ export default {
     reader.onload = function(e){
       // this.result // 这个就是base64编码了
       This.imageUrl = this.result;
+      This.imageKey = null;
+      This.imageDescription = "";
     }
   },
 
@@ -341,8 +577,6 @@ export default {
       return res
     },
 
-
-
     //上传后端待处理
 
     //按钮行为
@@ -350,10 +584,66 @@ export default {
     sure() {
       this.hasSubmit = false;
     },
+
+    // 引入世界风景图相关
+    moreLandscapeImages: function(){
+      console.log('test');
+      this.landscapeVisible = true;
+    },
+    selectLandscapeImages:function (item){
+      if(item.idx === this.selectedContinentIdx) return;
+      this.selectedContinentIdx = item.idx;
+      this.selectedImages.length = 0;
+      this.landscapeImages.forEach((i)=>{
+        if(i.continent === item.continent){
+          console.log(i);
+          this.selectedImages.push(i);
+        }
+      })
+    },
+    selectLandscapeImage: function (msg){
+      console.log('msg0:'+msg[0]); // dom节点 没啥用
+      console.log('msg1:'+msg[1]); // 图片id
+      console.log('msg2:'+msg[2]); // 图片名字
+      this.imageUrl = this.selectedImages[msg[1]].url;
+      this.imageKey = this.imageUrl.slice(33);
+      this.imageDescription = this.selectedImages[msg[1]].description;
+      console.log(this.imageUrl);
+      this.landscapeVisible = false;
+    },
+    selectLandscapeImageFromPreviewImages: function (item){
+      this.imageUrl = item.url;
+      this.imageKey = this.imageUrl.slice(33);
+      this.imageDescription = item.description;
+    }
   },
 };
 </script>
 
 <style>
 @import "../../assets/css/design/render.css";
+@import "../../assets/css/ats-sidenav.css";
+.show-card {
+  margin-right: 1.5rem; /* 24px */
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-width: 1px;
+  border-radius:  0.5rem; /* 8px */;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all .2s ease-out;
+}
+.show-card:hover {
+  cursor: pointer;
+  border-width: 2px;
+  border-color: var(--base-primary);
+  border-radius:  0.5rem; /* 8px */;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.show-card.img-div-selected {
+  border-width: 2px;
+  border-color: var(--base-primary);
+  border-radius:  0.5rem; /* 8px */;
+  background-color: var(--base-primary-opac);
+  box-shadow: 0 20px 25px -5px var(--base-primary-shadow), 0 8px 10px -6px var(--base-primary-shadow);
+}
 </style>

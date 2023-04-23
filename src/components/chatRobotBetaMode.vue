@@ -53,10 +53,10 @@
 </template>
 
 <script>
-import AtsButton from "../common/AtsButton";
+import AtsButton from "./common/AtsButton";
 import { v4 as uuidv4 } from 'uuid';
-import ImageShow from "./ImageShow";
-import {chatGPTAPI} from "../../api/design";
+import ImageShow from "./design/ImageShow";
+import {chatGPTAPI} from "../api/design";
 export default {
   name: "chatRobotBetaMode",
   components: {ImageShow, AtsButton},

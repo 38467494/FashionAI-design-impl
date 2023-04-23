@@ -29,7 +29,7 @@ import adminTab from "../src/components/admin/adminTab.vue";
 import myFooter from "./components/footer.vue";
 import AtsNavMenu from "./components/common/AtsNavMenu";
 import GradientBackground from "./components/common/GradientBackground.vue";
-import chatRobot from "./components/design/chatRobot";
+import chatRobot from "./components/chatRobot";
 
 const routeNamesWhichNeedsWhiteBackground = [
   'home',

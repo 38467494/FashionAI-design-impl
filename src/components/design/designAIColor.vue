@@ -150,10 +150,9 @@
 import ImageShow from "./ImageShow";
 import landscpaeImageShow from "./landscapeImageShow.vue";
 import AIColorResult from "./aicolorResult.vue";
-import {AIColor} from "../../api/design";
+import {AIColor, initLandscape} from "../../api/design";
 import * as qiniu from "qiniu-js";
 import {getUploadToken} from "../../api/design";
-import {initAIColor} from "../../api/design";
 import {showError} from "./alert";
 import MyCollectDialog from "../my-collect-dialog";
 import {getCoverImg, getImg} from "../personal/coverFunction";
@@ -397,7 +396,7 @@ export default {
           'http://resource.voguexplorer.com/fashion/aicolor/model/0%24IW%5D%7B8%60UCUBGNN~K%29YA677.jpg',
         ]
       );
-      initAIColor().then(res => {
+      initLandscape().then(res => {
         console.log("init aicolor",res.data);
         var landscapeList = res.data;
         landscapeList.forEach((i)=>{
@@ -473,9 +472,6 @@ export default {
       reader.onload = function(e){
         // this.result // 这个就是base64编码了
         This.imageUrl = this.result;
-        console.log("看看base64");
-        console.log(typeof (This.imageUrl));
-        console.log(This.imageUrl);
         This.imageKey = null;
         This.imageDescription = "";
       }

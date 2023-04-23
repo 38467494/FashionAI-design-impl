@@ -26,10 +26,10 @@
 </template>
 
 <script>
-import AtsButton from "../common/AtsButton";
-import {judgeRobot, recommendRobot, detailRobot} from "../../api/design";
+import AtsButton from "./common/AtsButton";
+import {judgeRobot, recommendRobot, detailRobot} from "../api/design";
 import { v4 as uuidv4 } from 'uuid';
-import ImageShow from "./ImageShow";
+import ImageShow from "./design/ImageShow";
 import ChatRobotAlphaMode from "./chatRobotAlphaMode";
 import ChatRobotBetaMode from "./chatRobotBetaMode";
 export default {

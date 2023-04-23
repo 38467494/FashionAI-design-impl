@@ -24,14 +24,14 @@
                   {{item.data.message}}
                   <el-link v-if="item.data.appendix!=='' && item.data.appendix" style="color:blue" @click="ignoreQuestion(item)">{{item.data.appendix}}</el-link>
                 </div>
-                <div class="chatSendProduct" v-else>
+                <div class="chatSendProduct" v-else @click="checkProposalDetails(item)">
                   <img :src="item.data.previewImgUrl" class="productImg"/>
                   <div class="productInfo">
                     <div>{{item.data.message}}</div>
                   </div>
-                  <div class="productBtns">
-                    <el-button size="mini" type="primary" @click="checkProposalDetails(item)">查看详情</el-button>
-                  </div>
+<!--                  <div class="productBtns">-->
+<!--                    <el-button size="mini" type="primary" @click="checkProposalDetails(item)">查看详情</el-button>-->
+<!--                  </div>-->
                 </div>
               </div>
             </div>
@@ -64,13 +64,14 @@
     </div>
     <el-dialog
       :visible.sync="proposalVisible"
+      v-loading="loading"
       width="55%"
       style="min-width: 840px;"
     >
       <template>
         <div class="text-left font-bold text-2xl px-5 py-2">推荐方案详情</div>
       </template>
-      <template v-loading="loading">
+      <template>
         <div class="flex flex-col divide-x px-6">
           <section>
             <div class="text-left text-large px-5 py-2">推荐方案：{{currentProposal.message}}</div>
@@ -88,10 +89,10 @@
 </template>
 
 <script>
-import AtsButton from "../common/AtsButton";
-import {judgeRobot, recommendRobot, detailRobot} from "../../api/design";
+import AtsButton from "./common/AtsButton";
+import {judgeRobot, recommendRobot, detailRobot} from "../api/design";
 import { v4 as uuidv4 } from 'uuid';
-import ImageShow from "./ImageShow";
+import ImageShow from "./design/ImageShow";
 export default {
   name: 'chatRobotAlphaMode',
   components: {ImageShow, AtsButton},
@@ -433,32 +434,54 @@ export default {
           this.proposals.push(p);
           this.addToHistory('server','link',p);
         }).catch(res=>{
-          console.log(res)
+          console.log('超时异常');
+          console.log(res);
+          let p = {
+            message: sentence,
+            appendix: '',
+            previewImgUrl: '',
+            imgUrls: [],
+            // 在详情页显示的信息
+            details: text,
+            imgKeywords: kws,
+            // 不可见信息
+            pid: uuidv4(),
+            loadReady: false, // 用来标记该推荐方案下的图片是否全部加载，默认false
+          }
+          this.proposals.push(p);
+          this.addToHistory('server','link',p);
         })
 
       }
     },
     checkProposalDetails: function (item){
       console.log(item.data);
+      this.proposalVisible = true;
       this.loading = true;
       var pos = 0;
+      console.log(this.proposals);
       for(;pos<this.proposals.length;pos++){
-        if(this.proposals.pid === item.pid){
+        if(this.proposals[pos].pid === item.data.pid){
           break;
         }
       }
+      console.log(pos);
       let _this=this;
       if(item.data.loadReady === false){
         var kws = item.data.imgKeywords;
         detailRobot({keywords:kws.slice(1,kws.length)}).then(res=>{
           console.log(res.data.data.images);
           res.data.data.images.forEach((i)=>{
-            this.proposals[pos].imgUrls.push(i);
+            _this.proposals[pos].imgUrls.push(i);
           })
           _this.loading = false;
+          _this.proposals[pos].loadReady = true;
           _this.showProposalDetails(this.proposals[pos]);
         }).catch(res=>{
+          console.log('超时异常');
           console.log(res);
+          _this.loading = false;
+          _this.showProposalDetails(this.proposals[pos]);
         })
       }
       else{
@@ -469,9 +492,7 @@ export default {
     },
     showProposalDetails: function (proposal){
       console.log(proposal);
-      this.proposalVisible = true;
       this.currentProposal = proposal;
-
 
     },
     scrollBottom:function(){
@@ -627,17 +648,6 @@ export default {
   font-size: 14px;
   word-break: break-all;
   line-height: 21px;
-  /*background: #fff;*/
-  /*margin: 2px 10px;*/
-  /*padding: 10px;*/
-  /*font-size: 14px;*/
-  /*border-radius: 10px;*/
-  /*position: absolute;*/
-  /*bottom: 85px;*/
-  /*left: 0;*/
-  /*right: 0;*/
-  /*z-index: 999;*/
-  /*box-shadow: 0 5px 30px rgb(50 50 93 / 8%), 0 1px 3px rgb(0 0 0 / 5%);*/
 }
 .chatSendProduct .productImg{
   max-width: 80px;

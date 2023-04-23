@@ -128,6 +128,15 @@ export default {
     //     immediate:false,
     //   }
     // },
+    watch:{
+      urls:{
+        handler(newValue,oldValue){
+          this.load();
+        },
+        deep:true,
+        immediate:false,
+      }
+    },
     methods:{
 
         load: function (){
