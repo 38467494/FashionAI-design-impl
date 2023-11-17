@@ -42,6 +42,17 @@ export async function getCoverImg(category,data){
     canvas.setHeight(400)
     res = await getVtonImg(canvas,data)
   }
+  else if(category == 'aicolor'){
+    canvas.setWidth(350)
+    canvas.setHeight(550)
+    res = await getAIColorImg(canvas,data)
+  }
+  else if(category == 'inspire'){
+    canvas.setWidth(950)
+    canvas.setHeight(500)
+    res = await getInspireImg(canvas,data)
+  }
+
   var url = await uploadImg(category, res)
 
 
@@ -148,8 +159,6 @@ export async function uploadURL(category, url){
 
   return await upload(file,key)
 }
-
-
 
 export async function getMMCImg(canvas,data){
   var matchType = data.matchType.label
@@ -324,7 +333,6 @@ export async function getOutfitImg(canvas,data){
   return getImg(canvas)
 }
 
-
 export async function getCollaborateImg(canvas,data){
   addText(canvas, "协同设计结果",10,10,'bold')
   addText(canvas, "正面",35,10,'bold')
@@ -408,7 +416,120 @@ export async function getVtonImg(canvas,data){
   return getImg(canvas)
 }
 
+export async function getAIColorImg(canvas, data){
+  console.log("getAIColor",canvas)
+  // canvas = addText(canvas, "渲染生成结果",10,10,'bold')
 
+  addText(canvas, "服装样式",350,10,'bold')
+  // console.log("addText1",getImg(canvas))
+
+  addText(canvas,"颜色样式",350,200,'bold')
+
+  addText(canvas, "AI着色结果",10,10,'bold')
+  // console.log("addText2",getImg(canvas))
+
+  var imgList = [
+    {
+      img: data.result,
+      top: 35,
+      left: 10,
+      width: 300,
+      height: 300
+    },
+    {
+      img: data.sketch,
+      top: 375,
+      left: 10,
+      width: 120,
+      height: 120
+    },
+    {
+      img: data.color,
+      top:375,
+      left: 200,
+      width: 120,
+      height: 120
+    }
+  ]
+
+  for(var i=0;i<imgList.length;i++){
+    await addImg(canvas,imgList[i].img,imgList[i].top,imgList[i].left,imgList[i].width,imgList[i].height)
+  }
+
+  canvas.renderAll();
+
+  return getImg(canvas)
+}
+
+export async function getInspireImg(canvas, data){
+  console.log("getInspire",canvas);
+
+
+  addText(canvas,"灵感迁移结果",35,650,'bold')
+  addText(canvas, "服装样式",35,200,'bold')
+  addText(canvas,"素材图片",35,10,'bold')
+
+  var imgList = [
+    {
+      img: data.color,
+      top: 100,
+      left: 10,
+      width: 120,
+      height: 120
+    },
+    {
+      img: data.texture,
+      top: 230,
+      left: 10,
+      width: 120,
+      height: 120
+    },
+    {
+      img: data.shape,
+      top: 360,
+      left: 10,
+      width: 120,
+      height: 120
+    },
+    {
+      img: '/static/cover/plus.png',
+      top: 250,
+      left: 140,
+      width: 50,
+      height: 50
+    },
+    {
+      img: data.sketch,
+      top: 100,
+      left: 200,
+      width: 300,
+      height: 300
+    },
+    {
+      img: '/static/cover/arrow.png',
+      top: 250,
+      left: 500,
+      width: 150,
+      height: 50
+    },
+    {
+      img: data.result,
+      top: 100,
+      left: 650,
+      width: 300,
+      height: 300
+    },
+  ]
+
+
+  for(var i=0;i<imgList.length;i++){
+    await addImg(canvas,imgList[i].img,imgList[i].top,imgList[i].left,imgList[i].width,imgList[i].height)
+  }
+
+  canvas.renderAll();
+
+  return getImg(canvas)
+}
 
 async function addImg(canvas,img,top,left,width,height){
 

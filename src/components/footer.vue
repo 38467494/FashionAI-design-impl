@@ -1,6 +1,6 @@
 <template>
   <div class="myFooter px-32 pb-6 pt-16 txt-in-dark">
-    <el-row type="flex" gutter="30" class="mb-16">
+    <el-row type="flex" :gutter="30" class="mb-16">
       <el-col :span="6">
           <AtsLogo/>
       </el-col>

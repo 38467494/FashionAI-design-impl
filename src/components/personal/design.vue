@@ -16,7 +16,7 @@ export default {
   },
   mounted() {
     this.loading = true;
-console.log("mount design")
+    console.log("mount design111");
     var id = this.$store.state.phone;
     var visitorId = this.$store.state.spaceUid;
     var isVisitor = true;
@@ -27,7 +27,7 @@ console.log("mount design")
       id: visitorId,
       isVisitor: isVisitor
     }).then(res => {
-      console.log(res.data.data)
+      console.log(res.data.data);
       _this.workList = res.data.data;
       _this.loading=false
     })

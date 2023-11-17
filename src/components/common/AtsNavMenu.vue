@@ -5,7 +5,7 @@
       <AtsLogo />
     </div>
 
-    <ul class="mx-4 flex-grow flex justify-center items-stretch">
+    <ul class="mx-4 flex-grow flex justify-start items-stretch">
       <router-link
         tag="li"
         v-for="item in menus"
@@ -37,7 +37,12 @@
     </ul>
 
     <div class="flex items-center grow-0">
-      <template v-if="$store.state.phone == null">
+      <div style="margin-right: 30px">
+        <ats-button :round="true" type="pink" size="small" @click="gotoAIGC">
+          <i class="bi bi-arrow-bar-up" style="font-size: 15px">我要投稿</i>
+        </ats-button>
+      </div>
+      <template v-if="$store.state.loginName == null">
         <ats-button type="primary" style="width: 90px" @click="toLogin">
           登录
         </ats-button>
@@ -45,7 +50,7 @@
       <template v-else>
         <div class="ats-nav-item h-full flex items-center">
           <a class="text-lg font-light flex items-center">
-            <span class="m-2">{{ $store.state.userName }}</span>
+            <span class="m-2">{{ $store.state.nickname }}</span>
           </a>
           <el-avatar :src="avatarPlaceholder" :size="30" />
           <!-- 用户子菜单列表 -->
@@ -55,7 +60,7 @@
           >
             <router-link
               tag="li"
-              to="/personalInfo"
+              to="/communityPersonal"
               class="px-3 py-2 m-0 rounded-lg"
             >
               <a class="py-1 text-base">
@@ -84,7 +89,7 @@
 import AtsButton from "./AtsButton";
 import AtsLogo from "./AtsLogo";
 import GradientBackground from "./GradientBackground";
-import { doLogout } from "../../api/login";
+import { communityLogout } from "../../api/login";
 export default {
   name: "AtsNavMenu",
   components: { GradientBackground, AtsLogo, AtsButton },
@@ -92,39 +97,82 @@ export default {
     '$route.name': function(newRouteName, oldRouteName) {
       this.isHome = (newRouteName === "home");
       console.log(`new ${newRouteName}, old ${oldRouteName}`)
-    }
+      // if (oldRouteName === 'communityLogin' && newRouteName !== 'communityRegister'){
+      //   location.reload()
+      // }
+    },
   },
   methods: {
     toLogin() {
-      this.$router.push("/login");
+      this.$router.push("/communitylogin");
     },
-    logout: function() {
+    async logout() {
       //jump to the main page
-      this.navselected = "/";
-      doLogout(this.$store.state.accessToken)
+      this.navselected = "/"
+      let _this = this
+      await communityLogout(5)
         .then(res => {
-          if (this.$route.path != "/") this.$router.replace({ name: "home" });
-          this.navselected = "/";
-          console.log(this.navselected);
+          _this.$store.state.accessToken = null;
+          _this.$store.commit("changeCommunityLogin", {
+            loginName: null,
+            nickname: null,
+            userId: null,
+            roleType: null,
+          })
+          if(_this.$route.path !== "/") _this.$router.replace({ name: "home" });
+          _this.navselected = "/";
+          console.log(_this.navselected);
         })
         .catch(err => {
           console.log(err);
         });
-      this.$store.state.accessToken = null;
-      this.$store
-        .commit("changeLogin", {
-          phone: null,
-          userName: null
-        })
-        .catch(err => {
-          console.log(err);
-        });
-      this.$store.state.accessToken = null;
-      this.$store.commit("changeLogin", {
-        phone: null,
-        userName: null
-      });
-    }
+
+    },
+    async gotoAIGC(){
+      let _this = this
+      if(this.$store.state.roleType!==null && parseInt(this.$store.state.roleType) === 0){
+        this.$router.push({
+          name:'communityItemEdit',
+          path: '/communityItemEdit',
+          query:{
+            mode: 'add',
+            itemId: '',
+          }
+        }).catch(err=>err)
+      }else{
+        this.$message("请先登录管理员账号，才能进行内容编辑！")
+        await setTimeout(function (){
+          _this.$router.push("/communitylogin")
+        }, 2000)
+      }
+    },
+    // logout: function() {
+    //   //jump to the main page
+    //   this.navselected = "/";
+    //   doLogout(this.$store.state.accessToken)
+    //     .then(res => {
+    //       if (this.$route.path != "/") this.$router.replace({ name: "home" });
+    //       this.navselected = "/";
+    //       console.log(this.navselected);
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     });
+    //   this.$store.state.accessToken = null;
+    //   this.$store
+    //     .commit("changeLogin", {
+    //       phone: null,
+    //       userName: null
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     });
+    //   this.$store.state.accessToken = null;
+    //   this.$store.commit("changeLogin", {
+    //     phone: null,
+    //     userName: null
+    //   });
+    // }
   },
   data() {
     return {
@@ -139,35 +187,40 @@ export default {
           route: "/home"
         },
         {
-          text: "搭配推荐",
-          route: "/recommendation"
+          text: "社区动态",
+          route: "/community"
         },
-        {
-          text: "协同设计",
-          route: "/collaborate"
-        },
-        {
-          text: "虚拟换装",
-          route: "/virtual-tryon"
-        },
-        {
-          text: "工具集",
-          route: "/design/match",
-          submenu: [
-            {
-              text: "设计生成",
-              route: "/design/match"
-            },
-            {
-              text: "AI造型工具",
-              route: "/stylist"
-            }
-          ]
-        },
-        {
-          text: "分享区",
-          route: "/share"
-        },
+        // 隐去菜单为原谙图生平台的功能
+        // {
+        //   text: "搭配推荐",
+        //   route: "/recommendation"
+        // },
+        // {
+        //   text: "协同设计",
+        //   route: "/collaborate"
+        // },
+        // {
+        //   text: "虚拟换装",
+        //   route: "/virtual-tryon"
+        // },
+        // {
+        //   text: "工具集",
+        //   route: "/design/match",
+        //   submenu: [
+        //     {
+        //       text: "设计生成",
+        //       route: "/design/match"
+        //     },
+        //     {
+        //       text: "AI造型工具",
+        //       route: "/stylist"
+        //     }
+        //   ]
+        // },
+        // {
+        //   text: "分享区",
+        //   route: "/share"
+        // },
         {
           text: "关于我们",
           route: "/aboutus"
@@ -207,6 +260,7 @@ ul.dropdown {
   z-index: 10;
   background-color: #fff;
   top: 60px;
+  right: 30px;
   transform: translateX(-25%);
   width: max-content;
   /*opacity: 0;*/
@@ -234,7 +288,7 @@ ul.dropdown > li:hover a {
   filter: blur(40px);
 } */
 .ats-nav {
-  
+
   border-bottom: 1px solid rgba(203, 203, 203, 1);
 }
 .ats-nav-item {

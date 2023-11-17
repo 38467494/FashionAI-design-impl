@@ -5,6 +5,7 @@ import instance from "../api/http";
 
 const address = 'http://10.249.176.82:8888/work'
 // const address = 'http://localhost:8888/work'
+// const test_address = 'http://10.250.111.166:8888/work'
 
 export function saveOneWork(work){
   instance.defaults.headers.post['Content-Type'] = 'application/json';

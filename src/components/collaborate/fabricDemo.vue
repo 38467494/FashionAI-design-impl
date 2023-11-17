@@ -12,7 +12,12 @@
             <el-col :span="12">
                 <!-- 对canvas上元素操作的工具栏 -->
                 <div>
-                    <toolbar v-bind:canvas="canvas" @previewCloth="previewCloth"></toolbar>
+                    <toolbar
+                      v-bind:canvas="canvas"
+                      @previewCloth="previewCloth"
+                      @renderCloth="renderCloth"
+                    >
+                    </toolbar>
                 </div>
                 <div style="height: 10px">
 
@@ -101,12 +106,13 @@ export default {
     },
     data: function() {
         return {
-            canvas: null,
-            preview_canvas: null,
-            previewVisible: false,
-            loading: true,
-            uid: 1,
-            pid:-1,
+          canvas: null,
+          preview_canvas: null,
+          previewVisible: false,
+          renderVisible: false,
+          loading: true,
+          uid: 1,
+          pid:-1,
           parent_version:-1,  //上一个版本的id
           canvasHeight: 480,
           canvasWidth: 360,
@@ -121,7 +127,6 @@ export default {
             ['Sweatshirts-white-front.png'],
           ],
           selectClothDom: null,
-
 
         }
     },
@@ -217,7 +222,10 @@ export default {
             this.previewVisible = true;
 
         },
-
+        renderCloth: function (){
+          console.log("renderCloth");
+          this.renderVisible = true;
+        },
       //打开dialog函数的回调，此时会加载设计图样到衣服上
         handleOpen:function(){
             // this.canvas.setBackgroundImage(null);

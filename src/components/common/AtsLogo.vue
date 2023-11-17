@@ -5,7 +5,7 @@
   <div class="logo-placeholder mr-4">
     <img src="../../../static/logo/logo-7.png"/>
   </div>
-  <div class="txt-lighter italic text-3xl">谙图生</div>
+  <div class="txt-lighter italic text-3xl">谙图生创意社区</div>
 </div>
 </template>
 

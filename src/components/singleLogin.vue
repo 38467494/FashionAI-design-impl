@@ -1,9 +1,9 @@
 <template>
     <div style="min-height: 100vh" class="flex flex-col justify-center items-center">
         <GradientBackground/>
-        
+
             <SimpleInfoCard round-radius="xl" style="min-width: 550px;max-width: 40%; max-height: 65%" class="mx-auto my-12 px-1 py-8">
-            <div class="login-container mx-auto pos-rltv">
+              <div class="login-container mx-auto pos-rltv">
                 <el-form ref="form" :model="form" label-width="80px" class="login-form mx-auto">
                     <h2 class="font-semibold text-xl login-title mb-6" style="margin-left:10%">登录</h2>
                     <br/>
@@ -29,7 +29,7 @@
                 <p class="mt-6 text-slate-400 text-base font-light">测试管理员账号：18218746467，密码：12345678</p>
             </div>
             </SimpleInfoCard>
-        
+
 
     </div>
 </template>
@@ -138,4 +138,4 @@ export default {
   padding: 0;
   border-radius: 20px; /* 圆角 */
 }
-</style> -->
+</style>

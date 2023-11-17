@@ -92,6 +92,14 @@ export default {
           label: "推荐生成",
           name: "outfitList"
         },
+        {
+          label: "灵感迁移",
+          name: "inspireList"
+        },
+        {
+          label: "AI着色",
+          name: "aiColorList"
+        },
       ],
       tabList: null,
       allList: null,
@@ -141,11 +149,13 @@ export default {
     },
     handleClick: function (index) {
       this.imageType = this.typeList[index].name
+      console.log("切换："+ this.imageType);
       this.activeIndex = index
       this.fresh += 1
-      if (this.imageType != "all")
+      if (this.imageType !== "all")
       {
         this.tabList = this.workList[this.imageType];
+        console.log(this.tabList);
       }
       else
       {

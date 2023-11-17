@@ -8,12 +8,12 @@
             <div
               class="super-title font-sans font-extrabold italic tracking-wider"
             >
-              谙图生
+              谙图生创意社区
             </div>
             <div
               class="whitespace-nowrap super-title font-sans font-extrabold italic tracking-wider"
             >
-              您的线上造型师
+              创造、分享、交流、实现
             </div>
           </section>
           <section class="mb-4">
@@ -25,7 +25,7 @@
             <div
               class="super-subtitle font-sans font-extrabold italic tracking-tight"
             >
-              Your online stylist.
+              Create, share, communicate and realize.
             </div>
           </section>
         </div>
@@ -34,18 +34,18 @@
         </div>
       </div>
     </div>
-    <SimpleInfoCard class="mx-20 my-20 px-28 py-12" round-radius="3xl">
-      <!-- recommendation -->
-      <SuperSection
-        v-for="intro in introduction"
-        class="mt-12 mb-32"
-        :intro="intro"
-        :reverse="intro.reverse"
-      />
-      <div>
-        <AtsBack2TopBtn />
-      </div>
-    </SimpleInfoCard>
+<!--    <SimpleInfoCard class="mx-20 my-20 px-28 py-12" round-radius="3xl">-->
+<!--      &lt;!&ndash; recommendation &ndash;&gt;-->
+<!--      <SuperSection-->
+<!--        v-for="intro in introduction"-->
+<!--        class="mt-12 mb-32"-->
+<!--        :intro="intro"-->
+<!--        :reverse="intro.reverse"-->
+<!--      />-->
+<!--      <div>-->
+<!--        <AtsBack2TopBtn />-->
+<!--      </div>-->
+<!--    </SimpleInfoCard>-->
   </div>
 </template>
 
@@ -68,6 +68,10 @@ export default {
     AtsSuperButton,
     GradientBackground,
     SimpleInfoCard
+  },
+  created() {
+    console.log('check loginName')
+    console.log(this.$store.state.loginName)
   },
   data: function() {
     return {

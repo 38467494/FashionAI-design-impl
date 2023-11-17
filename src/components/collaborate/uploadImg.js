@@ -59,3 +59,44 @@ export async function uploadImg(vid,front, img){
   return url;
 
 }
+
+// 这个函数用于AI渲染的sourceImage的存储，因为inspire接口只支持图片的url格式
+export async function uploadSourceImage(base64) {
+  var file = dataURLtoFile(base64, "1.png");
+  let timestamp = Date.parse(new Date());
+  var key = "collaborate_airender_inspire_" + timestamp + ".png"
+  var token;
+  await getUploadToken({
+    forever: false  // 这个sourceImage不需要长期存储
+  }).then(res=>{
+    console.log("getUploadToken:",res.data);
+    token = res.data;
+  }).catch(err =>{
+    console.log(err);
+  })
+  console.log("upload token",token);
+  const observable = qiniu.upload(file,key, token)
+  var url = ""
+  await new Promise((resolve, reject) => {
+    const subscription = observable.subscribe({
+      next: res => {
+        // console.log("next", res)
+      },
+      error: res=> {
+        console.log("error",res)
+        this.$message({
+          type: "error",
+          message: "服装图片上传失败"
+        })
+        reject()
+      },
+      complete: res=> {
+        // console.log("complete",res)
+        url = store.state.domain + res.key
+        resolve()
+      }
+    })
+  })
+  console.log("upload sourceImage url: ",url);
+  return url;
+}

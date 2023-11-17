@@ -16,7 +16,7 @@
           </p>
         </div>
       </div>
-      <!-- 
+      <!--
       <el-menu
         class="el-menu-vertical-demo"
         @select="handleSelect"
@@ -29,7 +29,7 @@
             :key="item.index"
             style="height: auto;padding: 5px;"
           >
-           
+
           </el-menu-item>
         </template>
       </el-menu> -->
@@ -60,6 +60,7 @@ import NavText from "./nav/navText.vue";
 import { fabric } from "fabric";
 import NavPencil from "./nav/navPencil.vue";
 import EditMain from "./nav/editMain";
+import {getUploadToken} from "../../api/design";
 // import {editFunction} from "./nav/objFunction";
 
 export default {
@@ -69,7 +70,7 @@ export default {
     canvas: {
       type: fabric.Canvas,
       default: null
-    }
+    },
   },
   computed: {
     selectType: function() {
@@ -114,7 +115,7 @@ export default {
         }
       ],
       selected: -1,
-      editVisible: false
+      editVisible: false,
     };
   },
   methods: {

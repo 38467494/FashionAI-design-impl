@@ -36,3 +36,52 @@
 .el-divider--vertical{
   height: 100%;
 }
+
+.avatar-uploaderCollaborate .el-upload{
+  border-radius: 6px;
+  border: 3px dashed rgba(189, 189, 189, 1);
+  background-color: rgba(243, 244, 248, 1);
+  cursor: pointer;
+  overflow: hidden;
+  margin: auto;
+  width: 100%;
+  transition: all .2s;
+}
+.avatar-uploaderCollaborate .el-upload:hover {
+  border-color: var(--base-primary);
+}
+.uploaderCollaborate-tips-txt {
+  transition: all .2s;
+}
+.avatar-uploaderCollaborate:hover .uploaderCollaborate-tips-txt {
+  color: var(--base-primary);
+}
+.uploaderCollaborate-tips {
+  color: rgba(189, 189, 189, 1);
+  width: 100px;
+  height: 100px;
+  text-align: center;
+}
+i.uploaderCollaborate-tips-txt{
+  font-size: 30px;
+}
+.avatarCollaborate {
+  width: 100px;
+  height: 100px;
+  /*position: absolute;*/
+  /*display: block;*/
+}
+
+.errorAlertCollaborate{
+  width: 50%;
+  padding: 0px 5px 10px 10px;
+
+}
+
+.sm-caption {
+  font-weight: bold;
+  color: #000;
+  font-size: 1rem;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}

@@ -137,4 +137,4 @@ export const deleteDrafts = formData =>
 
 
 export const getRecommendationList = params =>
-  axios.get(address + '/get-recommendation-list', params);
+  axios.get( address + '/get-recommendation-list', params);

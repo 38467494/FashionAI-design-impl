@@ -7,8 +7,10 @@
           :class="selectedMenuIdx == item.idx ? 'active' : ''"
           @click="handleSelect(item)"
         >
-          <i class="bi mr-2 text-xl" :class="'bi-' + item.icon"></i>
-          <span class="text-lg">{{ item.text }}</span>
+          <div class="flex is-justify-end">
+            <i class="bi mr-2 text-xl" :class="'bi-' + item.icon"></i>
+            <span class="text-lg">{{ item.text }}</span>
+          </div>
         </div>
       </template>
     </section>
@@ -17,6 +19,12 @@
       <!-- 这里使用嵌套路由进行页面的跳转 -->
       <router-view></router-view>
     </section>
+<!--    <j-hover-btn bgColor = 'pink'-->
+<!--                 width = '80'-->
+<!--                 text = ''-->
+<!--                 :btn-style = "btnStyle"-->
+<!--                 @hoverBtnClick = "hoverBtnClick()">-->
+<!--    </j-hover-btn>-->
   </div>
 </template>
 
@@ -26,8 +34,9 @@
 
 <script>
 import Match from "./design/match.vue";
+
 export default {
-  components: { Match },
+  components: {Match},
 
   name: "design",
   data() {
@@ -55,7 +64,34 @@ export default {
           text: "推荐生成",
           icon: "box2-heart",
           path: "/design/recommend"
-        }
+        },
+        inspire:{
+          idx: 3,
+          name: "inspire",
+          text: "灵感迁移",
+          icon: "lightbulb",
+          path: "/design/inspire",
+        },
+        AIcolor:{
+          idx: 4,
+          name: "AIcolor",
+          text: "AI着色",
+          icon: "brush",
+          path: "/design/aicolor",
+        },
+        // test:{
+        //   idx: 5,
+        //   name: "test",
+        //   text: "测试页面",
+        //   icon: "",
+        //   path: "/design/test",
+        // },
+      },
+      btnStyle:{
+        "fontSize":'small',
+        "top":'60vh',
+        "left":'90vw',
+        "backgroundImage":'url(http://resource.voguexplorer.com/fashion/robot/robot.png)',
       }
     };
   },
@@ -195,6 +231,11 @@ export default {
     //监视
     handleClick(tab, event) {
       console.log(tab, event);
+    },
+
+    // 悬浮按钮设计
+    hoverBtnClick(){
+      console.log('悬浮按钮点击事件');
     }
   }
 };

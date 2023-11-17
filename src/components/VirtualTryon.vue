@@ -237,6 +237,8 @@ export default {
         this.loading = false
 
         this.isAbleCollect = true
+      }).catch(e=>{
+        console.log(e);
       })
     },
     chooseModel(e) {
