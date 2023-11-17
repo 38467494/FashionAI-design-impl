@@ -27,12 +27,17 @@ const store = new Vuex.Store({
 
     //below message is about user
     accessToken: null,
-    roleType: null,
+    roleType: localStorage.getItem("roleType"),
     phone: localStorage.getItem("phone"),
     userName: localStorage.getItem("userName"),
     adminPhone: null,
     adminUserName: null,
 
+    // 社区登录的全局变量
+    loginName: localStorage.getItem("loginName"),
+    nickname: localStorage.getItem("nickname"),
+    userId: localStorage.getItem("userId"),
+    isLogin: localStorage.getItem("isLogin"),
 
     // about personal and share
     shareInnerId: -1, //share内页的id
@@ -130,6 +135,23 @@ const store = new Vuex.Store({
         localStorage.removeItem("userName ");
       }
       console.log("login", state.phone, state.userName)
+    },
+    changeCommunityLogin(state, payload) {
+      state.loginName = payload.loginName
+      state.nickname = payload.nickname
+      state.userId = payload.userId
+      state.roleType = payload.roleType
+      if (state.loginName != null) {
+        localStorage.setItem("loginName", state.loginName)
+        localStorage.setItem("nickname", state.nickname)
+        localStorage.setItem("userId", state.userId)
+        localStorage.setItem("roleType", state.roleType)
+      }else {
+        localStorage.removeItem("loginName")
+        localStorage.removeItem("nickname")
+        localStorage.removeItem("userId")
+        localStorage.removeItem("roleType")
+      }
     },
     changeAdminLogin(state, adminInfo) {
       console.log(adminInfo);

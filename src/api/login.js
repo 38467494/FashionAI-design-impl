@@ -18,3 +18,22 @@ export function getUserInfo(token) {
 export function doLogout(token) {
   return axios.get(address + '/v1/public/coreuser/logout/' + token)
 }
+
+// 谙图生创意社区专用
+
+const community_address = 'http://47.116.122.59:8080'
+
+export function communityLogin(data){
+  return axios.post(community_address + '/user/login', data)
+}
+
+export function communityLogout(userId){
+  let data = {
+    id: userId
+  }
+  return axios.post(community_address + '/user/logout/', data)
+}
+
+export function communityRegister(data){
+  return axios.post(community_address + '/user/register', data)
+}

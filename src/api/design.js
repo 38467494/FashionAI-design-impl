@@ -73,7 +73,7 @@ export function detailRobot(val){
 
 
 export function chatGPTAPI(val){
-  return axios.post('http://10.250.111.166:8888/chat/chatgpt', val)
+  return axios.post('http://10.250.111.166:8888/chat/chatgpt', val);
 }
 
 export function getUploadToken(data){

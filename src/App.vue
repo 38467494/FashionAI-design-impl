@@ -14,12 +14,12 @@
 <!--      <div style="height: 60px;"></div>-->
       <router-view style="width: 100%;">
       </router-view>
-      <chat-robot style="z-index: 9999999"></chat-robot>
+<!--      <chat-robot style="z-index: 9999999"></chat-robot>-->
     </el-main>
 
     <el-footer>
-      <my-footer v-if="$route.meta.isAdmin == null"></my-footer
-    ></el-footer>
+      <my-footer v-if="$route.meta.isAdmin == null"></my-footer>
+    </el-footer>
   </div>
 </template>
 
@@ -29,8 +29,10 @@ import adminTab from "../src/components/admin/adminTab.vue";
 import myFooter from "./components/footer.vue";
 import AtsNavMenu from "./components/common/AtsNavMenu";
 import GradientBackground from "./components/common/GradientBackground.vue";
-import chatRobot from "./components/chatRobot";
+// import chatRobot from "./components/chatRobot";
 
+
+// 注意，在这里加上页面，才能用彩色背景渲染到
 const routeNamesWhichNeedsWhiteBackground = [
   'home',
   'aboutus',
@@ -38,6 +40,12 @@ const routeNamesWhichNeedsWhiteBackground = [
   'adminLogin',
   'collaborate-process',
   'singleLogin',
+  'community',
+  'communityItemDetail',
+  'communityLogin',
+  'communityItemEdit',
+  'communityRegister',
+  'communityProposalDetail',
 ];
 
 export default {
@@ -48,7 +56,7 @@ export default {
     adminTab,
     myFooter,
     GradientBackground,
-    chatRobot,
+    // chatRobot,
   },
   mounted() {
     this.needWhiteBg = !(routeNamesWhichNeedsWhiteBackground.includes(this.$route.name));

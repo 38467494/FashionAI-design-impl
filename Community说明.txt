@@ -1,0 +1,14 @@
+本项目基于FashionAI的前端项目，其中大部分组件都不会用到，只复用基本样式和少数组件。
+用到的骨干vue组件包含：
+/src/App.vue
+/src/component/home.vue
+/src/component/footer.vue
+/src/component/community.vue
+/src/component/aboutus.vue
+/src/component/communityLogin.vue
+/src/component/community/communityItemShow.vue
+/src/component/community/communityItem.vue
+/src/component/community/communityItemDetail.vue
+/src/component/common 中的一些组件
+
+原有组件大多被弃用，从路由中删除，但是需要保留，作为项目的参考。

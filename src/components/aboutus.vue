@@ -1,17 +1,12 @@
 <template>
   <div>
-
-
     <GradientBackground/>
-
     <div style="max-width: 65vw" class="mx-auto">
       <h1 class="cap-h1 my-16 font-bold">项目贡献者</h1>
       <FrostedGlassContentCard class="mx-auto mb-24 mt-6">
-
         <div id="aboutus">
           <div style="padding:40px">
-
-            <el-row align="middle" gutter="0">
+            <el-row align="middle" :gutter="0">
               <template v-for="(item,index) in members">
                 <el-col :span="8" style="padding: 10px 0;">
                   <SimpleInfoCard class="mx-4 mb-4 py-1" round-radius="xl">
@@ -26,20 +21,13 @@
                       </HyperLink>
                     </div>
                   </SimpleInfoCard>
-
                 </el-col>
               </template>
             </el-row>
           </div>
-
-
           <br>
-
-
         </div>
       </FrostedGlassContentCard>
-
-
       <h1 class="cap-h1 my-16 font-bold">相关研究成果</h1>
       <FrostedGlassContentCard class="mx-auto mx-auto mb-24 mt-6">
         <div style="padding: 40px; font-family: var(--font-serif); font-size: 18px">

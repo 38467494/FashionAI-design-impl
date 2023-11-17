@@ -57,6 +57,19 @@ import singleLogin from '../components/singleLogin.vue'
 import designInspire from "../components/design/designInspire.vue";
 import designAIColor from "../components/design/designAIColor.vue";
 import designTest from "../components/design/designTest.vue";
+
+// 创意社区模块相关
+import community from "../components/community";
+import communityItemDetail from "../components/community/communityItemDetail";
+import communityLogin from "../components/communityLogin";
+import communityItemEdit from "../components/community/communityItemEdit";
+import communityRegister from "../components/communityRegister";
+import communityProposalDetail from "../components/community/communityProposalDetail";
+import communityPersonal from "../components/community/communityPersonal";
+import communityPersonalCollect from "../components/community/communityPersonalCollect";
+import communityPersonalProduct from "../components/community/communityPersonalProduct";
+import communityPersonalDesign from "../components/community/communityPersonalDesign";
+
 Vue.use(Router)
 
 const routes = new Router({
@@ -72,182 +85,238 @@ const routes = new Router({
       path: '/home',
       component: home
     },
-
-    //测试使用
     {
-      path: '/singleLogin',
-      name: 'singleLogin',
-      component: singleLogin,
-    },
-
-    {
-      path: '/share',
-      name: 'share',
-      component: share,
-      children: []
+      name: 'community',
+      path: '/community',
+      component: community,
     },
     {
-      path: '/share-inner',
-      name: 'share-inner',
-      component: innerPage,
-      meta: {
-        isChild: ['share', 'personalInfo','share-space']
+      name: 'communityItemDetail',
+      path: '/communityItemDetail',
+      component: communityItemDetail,
+    },
+    {
+      name: 'communityItemEdit',
+      path: '/communityItemEdit',
+      component: communityItemEdit,
+      meta:{
+        communityAdminAuth: true,
       }
     },
     {
-      path: '/share-space',
-      name: "share-space",
-      component: personalInfo
+      name: 'communityProposalDetail',
+      path: '/communityProposalDetail',
+      component: communityProposalDetail,
     },
-    {
-      path: '/recommendation',
-      name: 'recommendation',
-      component: recommendation,
-      meta: {
-        requireAuth: true,
-        nextPage: 'categoryList',
-      },
-      children: [{
-          path: 'category-list',
-          name: 'categoryList',
-          component: categoryList,
-          meta: {
-            requireAuth: true,
-          }
-        },
-        {
-          path: 'material-list',
-          name: 'materialList',
-          component: materialList,
-          meta: {
-            requireAuth: true,
-          },
-        },
-        {
-          path: 'rec-menu',
-          name: 'recMenu',
-          component: recMenu,
-          meta: {
-            requireAuth: true,
-            keepAlive: true,
-          }
-        },
-        {
-          path: 'rec-material-list',
-          name: 'recMaterialList',
-          component: recMaterialList,
-          meta: {
-            requireAuth: true,
-          },
-        },
-      ]
-    },
-    {
-      path: '/collaborate',
-      name: 'collaborate',
-      component: collaborate,
-      meta: {
-          requireAuth: true, //说明需要登录才能进入该页面
-          // nextPage: 'collaborate-main'
-      },
-      children: [
-        //collaborate 添加的页面
-        {
-          path: 'collaborate-main',
-          name: 'collaborate-main',
-          component: collaborateMain,
-          meta: {
-            requireAuth: true, //说明需要登录才能进入该页面
-          },
-        },
-        {
-          path: 'collaborate-process',
-          name: 'collaborate-process',
-          component: process,
-          meta: {
-            requireAuth: true, //说明需要登录才能进入该页面
-            isChild: ['collaborate-main']
-          },
-        },
-        {
-          path: 'collaborate-design',
-          name: 'collaborate-design',
-          // component: fabricDemo,
-          component: fabricDemoDouble,
-          meta: {
-            requireAuth: true, //说明需要登录才能进入该页面
-            isChild: ['collaborate-process', 'collaborate-main']
-          },
-        }
-      ]
-    },
-    {
-      path: '/virtual-tryon',
-      name: 'virtual try-on',
-      component: virtualTryon
-    },
-    {
-      path: '/design',
-      name: "design",
-      component: design,
-      children: [{
-          path: 'match',
-          name: "match",
-          component: match
-        },
-        {
-          path: 'render',
-          name: 'render',
-          component: designRender
-        },
-        {
-          path: 'recommend',
-          name: 'recommend',
-          component: designRecommend
-        },
-        {
-          path: 'inspire',
-          name: 'inspire',
-          component: designInspire
-        },
-        {
-          path: 'aicolor',
-          name: 'aicolor',
-          component: designAIColor
-        },
-        {
-          path: 'test',
-          name: 'test',
-          component: designTest
-        },
-      ]
-    },
-
     {
       path: '/aboutus',
       name: 'aboutus',
       component: aboutUs
     },
     {
-      path: '/login',
-      name: 'login',
-      component: login
+      path: '/communitylogin',
+      name: 'communityLogin',
+      component: communityLogin,
     },
     {
-      path: '/personalInfo',
-      name: 'personalInfo',
-      component: personalInfo,
+      path: '/communityregister',
+      name: 'communityRegister',
+      component: communityRegister,
     },
     {
-      path: '/stylist',
-      name: 'stylist',
-      component: stylist
+      name: 'communityPersonal',
+      path: '/communityPersonal',
+      component: communityPersonal,
+      meta:{
+        communityAuth: true,
+      },
+      children: [
+        {
+          name: 'communityPersonalCollect',
+          path: 'communityPersonalCollect',
+          component: communityPersonalCollect,
+        },
+        {
+          name: 'communityPersonalProduct',
+          path: 'communityPersonalProduct',
+          component: communityPersonalProduct,
+        },
+        {
+          name: 'communityPersonalDesign',
+          path: 'communityPersonalDesign',
+          component: communityPersonalDesign,
+        },
+      ]
     },
-    {
-      path: '/cover',
-      name: 'cover',
-      component: testCover
-    },
+    // {
+    //   path: '/login',
+    //   name: 'login',
+    //   component: login
+    // },
+    //测试使用
+    // {
+    //   path: '/singleLogin',
+    //   name: 'singleLogin',
+    //   component: singleLogin,
+    // },
+    //
+    // {
+    //   path: '/share',
+    //   name: 'share',
+    //   component: share,
+    //   children: []
+    // },
+    // {
+    //   path: '/share-inner',
+    //   name: 'share-inner',
+    //   component: innerPage,
+    //   meta: {
+    //     isChild: ['share', 'personalInfo','share-space']
+    //   }
+    // },
+    // {
+    //   path: '/share-space',
+    //   name: "share-space",
+    //   component: personalInfo
+    // },
+    // {
+    //   path: '/recommendation',
+    //   name: 'recommendation',
+    //   component: recommendation,
+    //   meta: {
+    //     requireAuth: true,
+    //     nextPage: 'categoryList',
+    //   },
+    //   children: [{
+    //       path: 'category-list',
+    //       name: 'categoryList',
+    //       component: categoryList,
+    //       meta: {
+    //         requireAuth: true,
+    //       }
+    //     },
+    //     {
+    //       path: 'material-list',
+    //       name: 'materialList',
+    //       component: materialList,
+    //       meta: {
+    //         requireAuth: true,
+    //       },
+    //     },
+    //     {
+    //       path: 'rec-menu',
+    //       name: 'recMenu',
+    //       component: recMenu,
+    //       meta: {
+    //         requireAuth: true,
+    //         keepAlive: true,
+    //       }
+    //     },
+    //     {
+    //       path: 'rec-material-list',
+    //       name: 'recMaterialList',
+    //       component: recMaterialList,
+    //       meta: {
+    //         requireAuth: true,
+    //       },
+    //     },
+    //   ]
+    // },
+    // {
+    //   path: '/collaborate',
+    //   name: 'collaborate',
+    //   component: collaborate,
+    //   meta: {
+    //       requireAuth: true, //说明需要登录才能进入该页面
+    //       // nextPage: 'collaborate-main'
+    //   },
+    //   children: [
+    //     //collaborate 添加的页面
+    //     {
+    //       path: 'collaborate-main',
+    //       name: 'collaborate-main',
+    //       component: collaborateMain,
+    //       meta: {
+    //         requireAuth: true, //说明需要登录才能进入该页面
+    //       },
+    //     },
+    //     {
+    //       path: 'collaborate-process',
+    //       name: 'collaborate-process',
+    //       component: process,
+    //       meta: {
+    //         requireAuth: true, //说明需要登录才能进入该页面
+    //         isChild: ['collaborate-main']
+    //       },
+    //     },
+    //     {
+    //       path: 'collaborate-design',
+    //       name: 'collaborate-design',
+    //       // component: fabricDemo,
+    //       component: fabricDemoDouble,
+    //       meta: {
+    //         requireAuth: true, //说明需要登录才能进入该页面
+    //         isChild: ['collaborate-process', 'collaborate-main']
+    //       },
+    //     }
+    //   ]
+    // },
+    // {
+    //   path: '/virtual-tryon',
+    //   name: 'virtual try-on',
+    //   component: virtualTryon
+    // },
+    // {
+    //   path: '/design',
+    //   name: "design",
+    //   component: design,
+    //   children: [{
+    //       path: 'match',
+    //       name: "match",
+    //       component: match
+    //     },
+    //     {
+    //       path: 'render',
+    //       name: 'render',
+    //       component: designRender
+    //     },
+    //     {
+    //       path: 'recommend',
+    //       name: 'recommend',
+    //       component: designRecommend
+    //     },
+    //     {
+    //       path: 'inspire',
+    //       name: 'inspire',
+    //       component: designInspire
+    //     },
+    //     {
+    //       path: 'aicolor',
+    //       name: 'aicolor',
+    //       component: designAIColor
+    //     },
+    //     {
+    //       path: 'test',
+    //       name: 'test',
+    //       component: designTest
+    //     },
+    //   ]
+    // },
+    // {
+    //   path: '/personalInfo',
+    //   name: 'personalInfo',
+    //   component: personalInfo,
+    // },
+    // {
+    //   path: '/stylist',
+    //   name: 'stylist',
+    //   component: stylist
+    // },
+    // {
+    //   path: '/cover',
+    //   name: 'cover',
+    //   component: testCover
+    // },
     // 管理员端
     // 管理员端登录
     {
@@ -458,42 +527,64 @@ const routes = new Router({
 })
 
 routes.beforeEach((to, from, next) => {
-  /**管理员端登录 */
-  if ((to.meta.requireAdminAuth) && (store.state.adminPhone == null)) {
+  // /**管理员端登录 */
+  // if ((to.meta.requireAdminAuth) && (store.state.adminPhone == null)) {
+  //   next({
+  //     name: 'adminLogin',
+  //     query: {
+  //       redirect: to.fullPath,
+  //     }
+  //   })
+  // }
+  // console.log("before", from);
+  // if ((to.meta.requireAuth) && (store.state.phone == null)) {
+  //   console.log("before Each login", to.fullPath)
+  //   next({
+  //     path: '/login',
+  //     query: {
+  //       redirect: to.fullPath
+  //     }
+  //   })
+  // } else if (to.meta.nextPage != null) {
+  //   next({
+  //     name: to.meta.nextPage
+  //   })
+  // } else if (to.meta.isChild != null) {
+  //   var list = to.meta.isChild;
+  //   for (var i = 0; i < list.length; i++) {
+  //     if (from.name == list[i]) {
+  //       next();
+  //       return;
+  //     }
+  //   }
+  //   next({
+  //     name: list[0]
+  //   })
+  // } else {
+  //   next();
+  // }
+
+  // 设置社区相关的路由登陆限制
+  if ((to.meta.communityAdminAuth) && (parseInt(store.state.roleType) !== 0)){
     next({
-      name: 'adminLogin',
-      query: {
-        redirect: to.fullPath,
-      }
-    })
-  }
-  console.log("before", from);
-  if ((to.meta.requireAuth) && (store.state.phone == null)) {
-    console.log("before Each login", to.fullPath)
-    next({
-      path: '/login',
+      path: '/communityLogin',
       query: {
         redirect: to.fullPath
       }
     })
-  } else if (to.meta.nextPage != null) {
-    next({
-      name: to.meta.nextPage
-    })
-  } else if (to.meta.isChild != null) {
-    var list = to.meta.isChild;
-    for (var i = 0; i < list.length; i++) {
-      if (from.name == list[i]) {
-        next();
-        return;
-      }
-    }
-    next({
-      name: list[0]
-    })
-  } else {
-    next();
   }
+  else if((to.meta.communityAuth) && store.state.roleType === null){
+    next({
+      path: '/communityLogin',
+      query: {
+        redirect: to.fullPath
+      }
+    })
+  }
+  else {
+    next()
+  }
+
 });
 
 const routerPush = Router.prototype.push

@@ -18,6 +18,7 @@ import {SSO_URL} from "../../const";
 import GradientBackground from "./common/GradientBackground";
 import FrostedGlassContentCard from "./common/FrostedGlassContentCard";
 import AtsButton from "./common/AtsButton";
+import SimpleInfoCard from "./common/SimpleInfoCard";
 
 window.addEventListener("message", e => {
   try {
@@ -40,24 +41,24 @@ window.addEventListener("message", e => {
 
 export default {
   name: "login",
-  components: {AtsButton, FrostedGlassContentCard, GradientBackground},
+  components: {AtsButton, FrostedGlassContentCard, GradientBackground, SimpleInfoCard},
   data() {
     return {
-      // form: {
-      //   username: "18218746467",
-      //   password: "12345678"
-      // },
+      form: {
+        username: "18218746467",
+        password: "12345678"
+      },
       iframe: '',
     };
   },
   methods: {
     async gotoSso() {
       // var url =document.URL
-      
+
       this.$router.replace("/")
       await this.iframe.contentWindow.postMessage(JSON.stringify({url: document.URL}), SSO_URL)
       window.location.href = SSO_URL
-      
+
       //测试使用
       //this.$router.push("/singleLogin");
     },
@@ -101,4 +102,4 @@ export default {
   padding: 30px;
   border-radius: 20px; /* 圆角 */
 }
-</style> -->
+</style>

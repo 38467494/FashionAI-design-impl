@@ -43,7 +43,7 @@ Vue.use(jvuewheel);
 
 // 聊天框A
 import Chat from 'vue-beautiful-chat'
-Vue.use(Chat)
+Vue.use(Chat);
 
 import {Loading} from "element-ui";
 Vue.use(Loading.directive);
