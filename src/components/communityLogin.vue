@@ -56,11 +56,13 @@ export default {
         password: ""
       },
       historyIdx: 2,
-      token: '',
-      roleType: '',
       userId: -1,
       nickname: ''
     };
+  },
+  created() {
+    this.$store.state.accessToken = null
+    this.$store.state.roleType = null
   },
   mounted() {
     // localStorage.clear()
@@ -79,8 +81,8 @@ export default {
           console.log('login success')
           console.log(res.data.data)
           if(res.data.data){
-            _this.token = res.data.data.token
-            _this.roleType = res.data.data.authority
+            _this.$store.state.accessToken = res.data.data.token
+            _this.$store.state.roleType = res.data.data.authority
             _this.userId = res.data.data.userId
             _this.nickname = res.data.data.nickname
             _this.setUserMsg()
@@ -104,7 +106,6 @@ export default {
         loginName: this.form.loginName,
         nickname: this.nickname,
         userId: this.userId,
-        roleType: this.roleType,
       })
       await setTimeout(this.routerGoBack, 2000)
     },

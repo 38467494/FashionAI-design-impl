@@ -1,6 +1,7 @@
 import axios from "../api/http";
 
-const community_address = 'http://47.116.122.59:8080'
+// const community_address = 'http://47.116.122.59:8080'
+const community_address = 'http://127.0.0.1:8080'
 
 export function getUploadToken(data){
   return axios.get(community_address + '/qiniuyun/uploadToken', {params: data})

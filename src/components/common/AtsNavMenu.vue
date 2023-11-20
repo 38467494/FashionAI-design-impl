@@ -109,15 +109,17 @@ export default {
     async logout() {
       //jump to the main page
       this.navselected = "/"
+      this.$store.state.accessToken = null
+      this.$store.state.roleType = null
       let _this = this
       await communityLogout(5)
         .then(res => {
-          _this.$store.state.accessToken = null;
+          _this.$store.state.accessToken = null
+          _this.$store.state.roleType = null
           _this.$store.commit("changeCommunityLogin", {
             loginName: null,
             nickname: null,
             userId: null,
-            roleType: null,
           })
           if(_this.$route.path !== "/") _this.$router.replace({ name: "home" });
           _this.navselected = "/";
