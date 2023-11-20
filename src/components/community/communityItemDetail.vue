@@ -429,6 +429,8 @@ export default {
   methods:{
     async judgeAuth(){
       // 0表示管理员，1表示设计师，2表示普通用户，null表示非登录状态
+      // console.log('see roletype')
+      // console.log(this.$store.state.accessToken)
       if(this.$store.state.roleType === null){
         this.isLogin = false
         this.userAuth = this.$store.state.roleType
@@ -437,7 +439,7 @@ export default {
         this.isLogin = true
         this.userAuth = parseInt(this.$store.state.roleType)
       }
-      console.log(this.userAuth)
+      // console.log(this.userAuth)
       if(this.isLogin){
         this.placeholder = '请发表你的评论: '
       }else{

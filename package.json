@@ -28,6 +28,7 @@
     "vcolorpicker": "^1.1.0",
     "vue": "^2.5.2",
     "vue-beautiful-chat": "^2.5.0",
+    "vue-cookies": "^1.8.3",
     "vue-router": "^3.0.1",
     "vue-virtual-collection": "^1.5.0",
     "vue-waterfall": "^1.0.6",

@@ -21,7 +21,8 @@ export function doLogout(token) {
 
 // 谙图生创意社区专用
 
-const community_address = 'http://47.116.122.59:8080'
+// const community_address = 'http://47.116.122.59:8080'
+const community_address = 'http://127.0.0.1:8080'
 
 export function communityLogin(data){
   return axios.post(community_address + '/user/login', data)
